@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { useReactTable, ColumnDef, flexRender, getCoreRowModel } from '@tanstack/react-table';
 import { slugify } from './utils';
 import { getTables, saveTables, addTable, deleteTable, updateTable } from './tableRepository';
-import { CritTable, CritRow, CritCell, CritColumn } from './types';
+import { CritTable, CritRow, CritCell, CritColumn, Metadatum, MetadatumComplex, MetadatumNumeric } from './types';
 import { getDefaultTableSchema } from './defaultTableSchema';
 
 function App() {
@@ -196,11 +196,51 @@ const CritTableEditor: React.FC<{ table: CritTable; onSave: (updatedTable: CritT
     () => [
       { header: 'Lower', accessorKey: 'lower' },
       { header: 'Upper', accessorKey: 'upper' },
-      { header: 'A', accessorKey: 'cells.A' },
-      { header: 'B', accessorKey: 'cells.B' },
-      { header: 'C', accessorKey: 'cells.C' },
-      { header: 'D', accessorKey: 'cells.D' },
-      { header: 'E', accessorKey: 'cells.E' },
+      {
+        header: 'A', accessorKey: 'A', cell: info => (
+          <div>
+            <div>{info.getValue<CritCell>().text}</div>
+            <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '4px 0' }} />
+            <div>{JSON.stringify(info.getValue<CritCell>().metadata)}</div>
+          </div>
+        )
+      },
+      {
+        header: 'B', accessorKey: 'B', cell: info => (
+          <div>
+            <div>{info.getValue<CritCell>().text}</div>
+            <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '4px 0' }} />
+            <div>{JSON.stringify(info.getValue<CritCell>().metadata)}</div>
+          </div>
+        )
+      },
+      {
+        header: 'C', accessorKey: 'C', cell: info => (
+          <div>
+            <div>{info.getValue<CritCell>().text}</div>
+            <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '4px 0' }} />
+            <div>{JSON.stringify(info.getValue<CritCell>().metadata)}</div>
+          </div>
+        )
+      },
+      {
+        header: 'D', accessorKey: 'D', cell: info => (
+          <div>
+            <div>{info.getValue<CritCell>().text}</div>
+            <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '4px 0' }} />
+            <div>{JSON.stringify(info.getValue<CritCell>().metadata)}</div>
+          </div>
+        )
+      },
+      {
+        header: 'E', accessorKey: 'E', cell: info => (
+          <div>
+            <div>{info.getValue<CritCell>().text}</div>
+            <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '4px 0' }} />
+            <div>{JSON.stringify(info.getValue<CritCell>().metadata)}</div>
+          </div>
+        )
+      },
     ],
     []
   );
@@ -434,7 +474,22 @@ const styles: { [key: string]: React.CSSProperties } = {
     padding: '0.75rem',
     textAlign: 'left',
   },
-}
+  metadataTable: {
+    width: '100%',
+    borderCollapse: 'collapse',
+    marginBottom: '1rem',
+  },
+  tableCellLabel: {
+    padding: '0.75rem',
+    textAlign: 'left',
+    fontWeight: 'bold',
+  },
+  buttonRow: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    marginTop: '1rem',
+  },
+};
 
 const modalStyles: { [key: string]: React.CSSProperties } = {
   overlay: {
@@ -443,27 +498,29 @@ const modalStyles: { [key: string]: React.CSSProperties } = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0,0,0,0.5)'
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   modal: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
     background: '#fff',
     padding: '2rem',
-    maxWidth: 400,
-    width: '80%'
+    maxWidth: 600,
+    width: '90%',
+    borderRadius: '8px',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
   },
   btnRow: {
     display: 'flex',
     justifyContent: 'space-between',
-    marginTop: '1rem'
+    marginTop: '1rem',
   },
   button: {
     padding: '0.5rem 1rem',
-    cursor: 'pointer'
-  }
-}
+    cursor: 'pointer',
+  },
+};
+
 
 export default App;
