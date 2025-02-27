@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { useReactTable, ColumnDef, flexRender, getCoreRowModel } from '@tanstack/react-table';
 import { slugify } from './utils';
 import { getTables, saveTables, addTable, deleteTable, updateTable } from './tableRepository';
-import { CritTable, CritRow, CritCell } from './types';
+import { CritTable, CritRow, CritCell, CritColumn, } from './types';
 import { getDefaultTableSchema } from './defaultTableSchema';
 
 function App() {
@@ -91,7 +91,9 @@ function App() {
           value={newTableName}
           onChange={(e) => setNewTableName(e.target.value)}
         />
-        <button style={styles.button} onClick={handleCreate}>
+        <button style={styles.button}
+          onClick={handleCreate}
+        >
           Crear
         </button>
       </div>
@@ -99,15 +101,15 @@ function App() {
       <table style={styles.table}>
         <thead>
           <tr>
-            <th>Nombre</th>
-            <th>Acciones</th>
+            <th style={styles.tableHeader}>Nombre</th>
+            <th style={styles.tableHeader}>Acciones</th>
           </tr>
         </thead>
         <tbody>
           {critTables.map((table) => (
             <tr key={table.id}>
-              <td>{table.name}</td>
-              <td>
+              <td style={styles.tableCell}>{table.name}</td>
+              <td style={styles.tableCell}>
                 <button style={styles.actionButton} onClick={() => handleEdit(table)}>
                   Editar
                 </button>
@@ -170,7 +172,7 @@ function DeleteModal({ tableName, onConfirm, onCancel }: DeleteModalProps) {
 
 const CritTableEditor: React.FC<{ table: CritTable; onSave: (updatedTable: CritTable) => void; }> = ({ table, onSave }) => {
   const [rows, setRows] = useState<CritRow[]>(table.rows);
-  const [selectedCell, setSelectedCell] = useState<{ rowIndex: number; column: 'A' | 'B' | 'C' | 'D' | 'E'; data: CritCell } | null>(null);
+  const [selectedCell, setSelectedCell] = useState<{ rowIndex: number; column: CritColumn; data: CritCell | undefined } | null>(null);
 
   const columns = React.useMemo<ColumnDef<CritRow>[]>(
     () => [
@@ -191,11 +193,11 @@ const CritTableEditor: React.FC<{ table: CritTable; onSave: (updatedTable: CritT
     getCoreRowModel: getCoreRowModel(),
   });
 
-  const handleCellClick = (rowIndex: number, column: 'A' | 'B' | 'C' | 'D' | 'E') => {
+  const handleCellClick = (rowIndex: number, column: CritColumn) => {
     setSelectedCell({ rowIndex, column, data: rows[rowIndex][column] || { text: '', metadata: [] } });
   };
 
-  const handleSaveCell = (rowIndex: number, column: 'A' | 'B' | 'C' | 'D' | 'E', updatedData: CritCell) => {
+  const handleSaveCell = (rowIndex: number, column: CritColumn, updatedData: CritCell) => {
     const updatedRows = [...rows];
     updatedRows[rowIndex][column] = updatedData;
     setRows(updatedRows);
@@ -229,7 +231,7 @@ const CritTableEditor: React.FC<{ table: CritTable; onSave: (updatedTable: CritT
                   <td
                     key={cell.id}
                     style={styles.tableCell}
-                    onClick={() => handleCellClick(i, cell.column.id as 'A' | 'B' | 'C' | 'D' | 'E')}
+                    onClick={() => handleCellClick(i, cell.column.id as CritColumn)}
                   >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>
@@ -242,7 +244,7 @@ const CritTableEditor: React.FC<{ table: CritTable; onSave: (updatedTable: CritT
       <button style={styles.saveButton} onClick={handleSave}>Guardar Tabla</button>
       {selectedCell && (
         <EditModal
-          cellData={selectedCell}
+          cellData={{ ...selectedCell, data: selectedCell.data || { text: '', metadata: [] } }}
           onSave={handleSaveCell}
           onClose={() => setSelectedCell(null)}
         />
@@ -252,8 +254,8 @@ const CritTableEditor: React.FC<{ table: CritTable; onSave: (updatedTable: CritT
 };
 
 interface EditModalProps {
-  cellData: { rowIndex: number; column: 'A' | 'B' | 'C' | 'D' | 'E'; data: CritCell };
-  onSave: (rowIndex: number, column: 'A' | 'B' | 'C' | 'D' | 'E', updatedData: CritCell) => void;
+  cellData: { rowIndex: number; column: CritColumn; data: CritCell };
+  onSave: (rowIndex: number, column: CritColumn, updatedData: CritCell) => void;
   onClose: () => void;
 }
 
@@ -310,36 +312,59 @@ const EditModal: React.FC<EditModalProps> = ({ cellData, onSave, onClose }) => {
 
 const styles: { [key: string]: React.CSSProperties } = {
   container: {
-    maxWidth: 700,
+    maxWidth: 900,
     margin: '2rem auto',
-    fontFamily: 'sans-serif'
+    fontFamily: 'Arial, sans-serif',
+    padding: '1rem',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+    borderRadius: '8px',
   },
   formContainer: {
     display: 'flex',
     gap: '0.5rem',
-    marginBottom: '1rem'
+    marginBottom: '1.5rem',
   },
   input: {
     flex: 1,
-    padding: '0.5rem'
+    padding: '0.75rem',
+    borderRadius: '4px',
+    border: '1px solid #ccc',
   },
   button: {
-    padding: '0.5rem 1rem',
-    cursor: 'pointer'
+    padding: '0.75rem 1.25rem',
+    cursor: 'pointer',
+    border: 'none',
+    borderRadius: '4px',
+    transition: 'background-color 0.3s ease',
+  },
+  mainButtonHover: {
+    backgroundColor: '#0056b3',
   },
   table: {
     width: '100%',
     borderCollapse: 'collapse',
-    marginBottom: '1rem',
+    marginBottom: '1.5rem',
     border: '1px solid #ddd',
+    borderRadius: '8px',
+    overflow: 'hidden',
   },
   actionButton: {
     marginRight: '0.5rem',
-    padding: '0.3rem 0.6rem',
-    cursor: 'pointer'
+    padding: '0.5rem 0.75rem',
+    cursor: 'pointer',
+    border: 'none',
+    borderRadius: '4px',
+    transition: 'background-color 0.3s ease',
+  },
+  actionButtonHover: {
+    backgroundColor: '#218838',
   },
   editorContainer: {
     margin: '2rem 0',
+    padding: '1rem',
+    border: '1px solid #ddd',
+    borderRadius: '8px',
+    boxShadow: '0 0 5px rgba(0, 0, 0, 0.1)',
   },
   editorTable: {
     width: '100%',
@@ -347,34 +372,48 @@ const styles: { [key: string]: React.CSSProperties } = {
     marginBottom: '1rem',
   },
   saveButton: {
-    padding: '0.5rem 1rem',
+    padding: '0.75rem 1.25rem',
     cursor: 'pointer',
+    background: '#007bff',
+    color: 'white',
+    border: 'none',
+    borderRadius: '4px',
+    transition: 'background-color 0.3s ease',
+  },
+  saveButtonHover: {
+    backgroundColor: '#0056b3',
   },
   textarea: {
     width: '100%',
-    height: '100px',
+    height: '120px',
+    padding: '0.75rem',
     marginBottom: '1rem',
+    borderRadius: '4px',
+    border: '1px solid #ccc',
   },
   metadataRow: {
     display: 'flex',
     gap: '0.5rem',
-    marginBottom: '0.5rem',
+    marginBottom: '0.75rem',
+    alignItems: 'center',
   },
   select: {
-    flex: 1,
-  },
-  input: {
-    flex: 2,
+    flex: '0 1 80px',
+    padding: '0.5rem',
+    borderRadius: '4px',
+    border: '1px solid #ccc',
   },
   tableHeader: {
-    backgroundColor: '#f4f4f4',
+    backgroundColor: '#f8f9fa',
     borderBottom: '2px solid #ddd',
-    padding: '0.5rem',
+    padding: '0.75rem',
     textAlign: 'left',
+    fontWeight: 'bold',
+    color: '#333',
   },
   tableCell: {
     borderBottom: '1px solid #ddd',
-    padding: '0.5rem',
+    padding: '0.75rem',
     textAlign: 'left',
   },
 }

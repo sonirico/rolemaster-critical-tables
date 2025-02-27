@@ -22,8 +22,8 @@ export interface CritCell {
 }
 
 export interface CritRow {
-    lower?: number;
-    upper?: number;
+    lower: number;
+    upper: number;
     A: CritCell;
     B: CritCell;
     C: CritCell;
@@ -37,3 +37,6 @@ export interface CritTable {
     name: string;
     rows: CritRow[];
 }
+
+
+export type CritColumn = 'A' | 'B' | 'C' | 'D' | 'E';
