@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { useReactTable, ColumnDef, flexRender, getCoreRowModel } from '@tanstack/react-table';
 import { slugify } from './utils';
 import { getTables, saveTables, addTable, deleteTable, updateTable } from './tableRepository';
-import { CritTable, CritRow, CritCell, CritColumn, } from './types';
+import { CritTable, CritRow, CritCell, CritColumn } from './types';
 import { getDefaultTableSchema } from './defaultTableSchema';
 
 function App() {
@@ -79,6 +79,18 @@ function App() {
     setEditingTable(null);
   };
 
+  const exportTableToJson = (table: CritTable) => {
+    const dataStr = JSON.stringify(table, null, 2);
+    const blob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${table.name}.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div style={styles.container}>
       <h1>Catálogo de Tablas de Críticos</h1>
@@ -121,6 +133,12 @@ function App() {
                   onClick={() => requestDelete(table)}
                 >
                   Eliminar
+                </button>
+                <button
+                  style={{ ...styles.actionButton }}
+                  onClick={() => exportTableToJson(table)}
+                >
+                  Exportar
                 </button>
               </td>
             </tr>
@@ -178,11 +196,11 @@ const CritTableEditor: React.FC<{ table: CritTable; onSave: (updatedTable: CritT
     () => [
       { header: 'Lower', accessorKey: 'lower' },
       { header: 'Upper', accessorKey: 'upper' },
-      { header: 'A', accessorKey: 'A' },
-      { header: 'B', accessorKey: 'B' },
-      { header: 'C', accessorKey: 'C' },
-      { header: 'D', accessorKey: 'D' },
-      { header: 'E', accessorKey: 'E' },
+      { header: 'A', accessorKey: 'cells.A' },
+      { header: 'B', accessorKey: 'cells.B' },
+      { header: 'C', accessorKey: 'cells.C' },
+      { header: 'D', accessorKey: 'cells.D' },
+      { header: 'E', accessorKey: 'cells.E' },
     ],
     []
   );
@@ -306,7 +324,7 @@ const EditModal: React.FC<EditModalProps> = ({ cellData, onSave, onClose }) => {
         <button style={styles.button} onClick={handleSave}>Guardar</button>
         <button style={styles.button} onClick={onClose}>Cancelar</button>
       </div>
-    </div>
+    </div >
   );
 };
 
@@ -448,5 +466,4 @@ const modalStyles: { [key: string]: React.CSSProperties } = {
   }
 }
 
-export default App
-
+export default App;
