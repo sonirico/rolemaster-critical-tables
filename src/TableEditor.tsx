@@ -2,15 +2,63 @@ import React, { useState } from 'react';
 import { useReactTable, ColumnDef, flexRender, getCoreRowModel } from '@tanstack/react-table';
 import { CritTable, CritRow, CritCell, CritColumn } from './types';
 import EditModal from './ModalCellEditor';
+import { updateTable } from './RepositoryTable';
 
 const TableEditor: React.FC<{ table: CritTable; onSave: (updatedTable: CritTable) => void; }> = ({ table, onSave }) => {
   const [rows, setRows] = useState<CritRow[]>(table.rows);
   const [selectedCell, setSelectedCell] = useState<{ rowIndex: number; column: CritColumn; data: CritCell | undefined } | null>(null);
 
+  const handleSaveNumberCell = (rowIndex: number, column: 'lower' | 'upper', updatedValue: number) => {
+    const updatedRows = [...rows];
+    updatedRows[rowIndex][column] = updatedValue;
+    setRows(updatedRows);
+    const updatedTable = { ...table, rows: updatedRows };
+    updateTable(updatedTable);
+  };
+
+  const handleSaveCritCell = (rowIndex: number, column: CritColumn, updatedData: CritCell) => {
+    const updatedRows = [...rows];
+    updatedRows[rowIndex][column] = updatedData;
+    setRows(updatedRows);
+    setSelectedCell(null);
+    const updatedTable = { ...table, rows: updatedRows };
+    updateTable(updatedTable);
+  };
+
+  const NumberCell: React.FC<{ value: number; rowIndex: number; column: 'lower' | 'upper' }> = ({ value, rowIndex, column }) => {
+    const [isEditing, setIsEditing] = useState(false);
+    const [inputValue, setInputValue] = useState(value);
+
+    const handleBlur = () => {
+      handleSaveNumberCell(rowIndex, column, inputValue);
+      setIsEditing(false);
+    };
+
+    return isEditing ? (
+      <input
+        type="number"
+        value={inputValue}
+        onChange={(e) => setInputValue(Number(e.target.value))}
+        onBlur={handleBlur}
+        autoFocus
+      />
+    ) : (
+      <div onClick={() => setIsEditing(true)}>{value}</div>
+    );
+  };
+
   const columns = React.useMemo<ColumnDef<CritRow>[]>(
     () => [
-      { header: 'Lower', accessorKey: 'lower' },
-      { header: 'Upper', accessorKey: 'upper' },
+      {
+        header: 'Lower',
+        accessorKey: 'lower',
+        cell: info => <NumberCell value={info.getValue<number>()} rowIndex={info.row.index} column="lower" />
+      },
+      {
+        header: 'Upper',
+        accessorKey: 'upper',
+        cell: info => <NumberCell value={info.getValue<number>()} rowIndex={info.row.index} column="upper" />
+      },
       {
         header: 'A', accessorKey: 'A', cell: info => (
           <div>
@@ -70,29 +118,35 @@ const TableEditor: React.FC<{ table: CritTable; onSave: (updatedTable: CritTable
     setSelectedCell({ rowIndex, column, data: rows[rowIndex][column] || { text: '', metadata: [] } });
   };
 
-  const handleSaveCell = (rowIndex: number, column: CritColumn, updatedData: CritCell) => {
-    const updatedRows = [...rows];
-    updatedRows[rowIndex][column] = updatedData;
-    setRows(updatedRows);
-    setSelectedCell(null);
-  };
-
   const handleSave = () => {
     onSave({ ...table, rows });
+    updateTable({ ...table, rows });
   };
 
   return (
     <div style={styles.editorContainer}>
-      <h2>Editar Tabla: {table.name}</h2>
+      <h2>Editando tabla: {table.name}</h2>
       <table style={styles.editorTable}>
         <thead>
           {reactTableInstance.getHeaderGroups().map(headerGroup => (
             <tr key={headerGroup.id}>
-              {headerGroup.headers.map(column => (
-                <th key={column.id} style={styles.tableHeader}>
-                  {flexRender(column.column.columnDef.header, column.getContext())}
-                </th>
-              ))}
+              {headerGroup.headers.map(column => {
+                let extraStyles = {};
+                switch (column.id) {
+                  case 'lower':
+                  case 'upper':
+                    extraStyles = { width: '100px' };
+                    break;
+                  default:
+                    extraStyles = {};
+                }
+
+                return (
+                  <th key={column.id} style={{ ...styles.tableHeader, ...extraStyles }}>
+                    {flexRender(column.column.columnDef.header, column.getContext())}
+                  </th>
+                )
+              })}
             </tr>
           ))}
         </thead>
@@ -100,62 +154,45 @@ const TableEditor: React.FC<{ table: CritTable; onSave: (updatedTable: CritTable
           {reactTableInstance.getRowModel().rows.map((row, i) => {
             return (
               <tr key={row.id}>
-                {row.getVisibleCells().map(cell => (
-                  <td
-                    key={cell.id}
-                    style={styles.tableCell}
-                    onClick={() => handleCellClick(i, cell.column.id as CritColumn)}
-                  >
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
-                ))}
+                {row.getVisibleCells().map(cell => {
+                  const colId = cell.column.id;
+                  if (colId === 'lower' || colId === 'upper') {
+                    return (
+                      <td key={cell.id} style={styles.tableCell}>
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      </td>
+                    );
+                  }
+                  return (
+                    <td
+                      key={cell.id}
+                      style={styles.tableCell}
+                      onClick={() => handleCellClick(i, colId as CritColumn)}
+                    >
+                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    </td>
+                  );
+                })}
               </tr>
             );
           })}
         </tbody>
       </table>
       <button style={styles.saveButton} onClick={handleSave}>Guardar Tabla</button>
-      {selectedCell && (
-        <EditModal
-          cellData={{ ...selectedCell, data: selectedCell.data || { text: '', metadata: [] } }}
-          onSave={handleSaveCell}
-          onClose={() => setSelectedCell(null)}
-        />
-      )}
-    </div>
+      {
+        selectedCell && (
+          <EditModal
+            cellData={{ ...selectedCell, data: selectedCell.data || { text: '', metadata: [] } }}
+            onSave={handleSaveCritCell}
+            onClose={() => setSelectedCell(null)}
+          />
+        )
+      }
+    </div >
   );
 };
 
 const styles: { [key: string]: React.CSSProperties } = {
-  container: {
-    maxWidth: 900,
-    margin: '2rem auto',
-    fontFamily: 'Arial, sans-serif',
-    padding: '1rem',
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-    borderRadius: '8px',
-  },
-  formContainer: {
-    display: 'flex',
-    gap: '0.5rem',
-    marginBottom: '1.5rem',
-  },
-  input: {
-    flex: 1,
-    padding: '0.75rem',
-    borderRadius: '4px',
-    border: '1px solid #ccc',
-  },
-  button: {
-    padding: '0.75rem 1.25rem',
-    cursor: 'pointer',
-    border: 'none',
-    borderRadius: '4px',
-    transition: 'background-color 0.3s ease',
-  },
-  mainButtonHover: {
-    backgroundColor: '#0056b3',
-  },
   table: {
     width: '100%',
     borderCollapse: 'collapse',
@@ -163,17 +200,6 @@ const styles: { [key: string]: React.CSSProperties } = {
     border: '1px solid #ddd',
     borderRadius: '8px',
     overflow: 'hidden',
-  },
-  actionButton: {
-    marginRight: '0.5rem',
-    padding: '0.5rem 0.75rem',
-    cursor: 'pointer',
-    border: 'none',
-    borderRadius: '4px',
-    transition: 'background-color 0.3s ease',
-  },
-  actionButtonHover: {
-    backgroundColor: '#218838',
   },
   editorContainer: {
     margin: '2rem 0',
@@ -187,38 +213,6 @@ const styles: { [key: string]: React.CSSProperties } = {
     borderCollapse: 'collapse',
     marginBottom: '1rem',
   },
-  saveButton: {
-    padding: '0.75rem 1.25rem',
-    cursor: 'pointer',
-    background: '#007bff',
-    color: 'white',
-    border: 'none',
-    borderRadius: '4px',
-    transition: 'background-color 0.3s ease',
-  },
-  saveButtonHover: {
-    backgroundColor: '#0056b3',
-  },
-  textarea: {
-    width: '100%',
-    height: '120px',
-    padding: '0.75rem',
-    marginBottom: '1rem',
-    borderRadius: '4px',
-    border: '1px solid #ccc',
-  },
-  metadataRow: {
-    display: 'flex',
-    gap: '0.5rem',
-    marginBottom: '0.75rem',
-    alignItems: 'center',
-  },
-  select: {
-    flex: '0 1 80px',
-    padding: '0.5rem',
-    borderRadius: '4px',
-    border: '1px solid #ccc',
-  },
   tableHeader: {
     backgroundColor: '#f8f9fa',
     borderBottom: '2px solid #ddd',
@@ -231,21 +225,6 @@ const styles: { [key: string]: React.CSSProperties } = {
     borderBottom: '1px solid #ddd',
     padding: '0.75rem',
     textAlign: 'left',
-  },
-  metadataTable: {
-    width: '100%',
-    borderCollapse: 'collapse',
-    marginBottom: '1rem',
-  },
-  tableCellLabel: {
-    padding: '0.75rem',
-    textAlign: 'left',
-    fontWeight: 'bold',
-  },
-  buttonRow: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    marginTop: '1rem',
   },
 };
 
