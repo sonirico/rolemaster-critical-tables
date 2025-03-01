@@ -1,8 +1,44 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { useReactTable, ColumnDef, flexRender, getCoreRowModel } from '@tanstack/react-table';
 import { CritTable, CritRow, CritCell, CritColumn } from './types';
 import EditModal from './ModalCellEditor';
 import { updateTable } from './RepositoryTable';
+import EffectIcons from './EffectIcons'; // Importamos el nuevo componente
+
+const TableContainer = styled.div`
+  display: grid;
+  grid-template-columns: 100px 100px repeat(5, 1fr); // Ajustamos el tamaño de las columnas
+  gap: 1rem;
+`;
+
+const CellContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &:hover pre {
+    display: block;
+  }
+`;
+
+const CellText = styled.div`
+  margin-bottom: 0.5rem;
+`;
+
+const CellJson = styled.pre`
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  z-index: 1;
+  white-space: pre-wrap;
+  word-break: break-all;
+  width: 100%;
+`;
 
 const TableEditor: React.FC<{ table: CritTable; onSave: (updatedTable: CritTable) => void; }> = ({ table, onSave }) => {
   const [rows, setRows] = useState<CritRow[]>(table.rows);
@@ -61,47 +97,47 @@ const TableEditor: React.FC<{ table: CritTable; onSave: (updatedTable: CritTable
       },
       {
         header: 'A', accessorKey: 'A', cell: info => (
-          <div>
-            <div>{info.getValue<CritCell>().text}</div>
-            <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '4px 0' }} />
-            <div>{JSON.stringify(info.getValue<CritCell>().metadata)}</div>
-          </div>
+          <CellContainer>
+            <CellText>{info.getValue<CritCell>().text}</CellText>
+            <EffectIcons metadata={info.getValue<CritCell>().metadata} />
+            <CellJson>{JSON.stringify(info.getValue<CritCell>().metadata, null, 2)}</CellJson>
+          </CellContainer>
         )
       },
       {
         header: 'B', accessorKey: 'B', cell: info => (
-          <div>
-            <div>{info.getValue<CritCell>().text}</div>
-            <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '4px 0' }} />
-            <div>{JSON.stringify(info.getValue<CritCell>().metadata)}</div>
-          </div>
+          <CellContainer>
+            <CellText>{info.getValue<CritCell>().text}</CellText>
+            <EffectIcons metadata={info.getValue<CritCell>().metadata} />
+            <CellJson>{JSON.stringify(info.getValue<CritCell>().metadata, null, 2)}</CellJson>
+          </CellContainer>
         )
       },
       {
         header: 'C', accessorKey: 'C', cell: info => (
-          <div>
-            <div>{info.getValue<CritCell>().text}</div>
-            <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '4px 0' }} />
-            <div>{JSON.stringify(info.getValue<CritCell>().metadata)}</div>
-          </div>
+          <CellContainer>
+            <CellText>{info.getValue<CritCell>().text}</CellText>
+            <EffectIcons metadata={info.getValue<CritCell>().metadata} />
+            <CellJson>{JSON.stringify(info.getValue<CritCell>().metadata, null, 2)}</CellJson>
+          </CellContainer>
         )
       },
       {
         header: 'D', accessorKey: 'D', cell: info => (
-          <div>
-            <div>{info.getValue<CritCell>().text}</div>
-            <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '4px 0' }} />
-            <div>{JSON.stringify(info.getValue<CritCell>().metadata)}</div>
-          </div>
+          <CellContainer>
+            <CellText>{info.getValue<CritCell>().text}</CellText>
+            <EffectIcons metadata={info.getValue<CritCell>().metadata} />
+            <CellJson>{JSON.stringify(info.getValue<CritCell>().metadata, null, 2)}</CellJson>
+          </CellContainer>
         )
       },
       {
         header: 'E', accessorKey: 'E', cell: info => (
-          <div>
-            <div>{info.getValue<CritCell>().text}</div>
-            <hr style={{ border: 'none', borderTop: '1px solid #ddd', margin: '4px 0' }} />
-            <div>{JSON.stringify(info.getValue<CritCell>().metadata)}</div>
-          </div>
+          <CellContainer>
+            <CellText>{info.getValue<CritCell>().text}</CellText>
+            <EffectIcons metadata={info.getValue<CritCell>().metadata} />
+            <CellJson>{JSON.stringify(info.getValue<CritCell>().metadata, null, 2)}</CellJson>
+          </CellContainer>
         )
       },
     ],
@@ -126,58 +162,28 @@ const TableEditor: React.FC<{ table: CritTable; onSave: (updatedTable: CritTable
   return (
     <div style={styles.editorContainer}>
       <h2>Editando tabla: {table.name}</h2>
-      <table style={styles.editorTable}>
-        <thead>
-          {reactTableInstance.getHeaderGroups().map(headerGroup => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map(column => {
-                let extraStyles = {};
-                switch (column.id) {
-                  case 'lower':
-                  case 'upper':
-                    extraStyles = { width: '100px' };
-                    break;
-                  default:
-                    extraStyles = {};
-                }
-
-                return (
-                  <th key={column.id} style={{ ...styles.tableHeader, ...extraStyles }}>
-                    {flexRender(column.column.columnDef.header, column.getContext())}
-                  </th>
-                )
-              })}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {reactTableInstance.getRowModel().rows.map((row, i) => {
-            return (
-              <tr key={row.id}>
-                {row.getVisibleCells().map(cell => {
-                  const colId = cell.column.id;
-                  if (colId === 'lower' || colId === 'upper') {
-                    return (
-                      <td key={cell.id} style={styles.tableCell}>
-                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                      </td>
-                    );
-                  }
-                  return (
-                    <td
-                      key={cell.id}
-                      style={styles.tableCell}
-                      onClick={() => handleCellClick(i, colId as CritColumn)}
-                    >
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <TableContainer>
+        <div style={styles.tableHeader}>Lower</div>
+        <div style={styles.tableHeader}>Upper</div>
+        <div style={styles.tableHeader}>A</div>
+        <div style={styles.tableHeader}>B</div>
+        <div style={styles.tableHeader}>C</div>
+        <div style={styles.tableHeader}>D</div>
+        <div style={styles.tableHeader}>E</div>
+        {reactTableInstance.getRowModel().rows.map((row, i) => (
+          <React.Fragment key={row.id}>
+            {row.getVisibleCells().map(cell => (
+              <div
+                key={cell.id}
+                style={styles.tableCell}
+                onClick={() => handleCellClick(i, cell.column.id as CritColumn)}
+              >
+                {flexRender(cell.column.columnDef.cell, cell.getContext())}
+              </div>
+            ))}
+          </React.Fragment>
+        ))}
+      </TableContainer>
       <button style={styles.saveButton} onClick={handleSave}>Guardar Tabla</button>
       {
         selectedCell && (
@@ -188,33 +194,21 @@ const TableEditor: React.FC<{ table: CritTable; onSave: (updatedTable: CritTable
           />
         )
       }
-    </div >
+    </div>
   );
 };
 
 const styles: { [key: string]: React.CSSProperties } = {
-  table: {
-    width: '100%',
-    borderCollapse: 'collapse',
-    marginBottom: '1.5rem',
-    border: '1px solid #ddd',
-    borderRadius: '8px',
-    overflow: 'hidden',
-  },
   editorContainer: {
     margin: '2rem 0',
     padding: '1rem',
     border: '1px solid #ddd',
     borderRadius: '8px',
     boxShadow: '0 0 5px rgba(0, 0, 0, 0.1)',
-  },
-  editorTable: {
-    width: '100%',
-    borderCollapse: 'collapse',
-    marginBottom: '1rem',
+    backgroundColor: '#f4f4f4',
   },
   tableHeader: {
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#e9ecef',
     borderBottom: '2px solid #ddd',
     padding: '0.75rem',
     textAlign: 'left',
@@ -225,6 +219,16 @@ const styles: { [key: string]: React.CSSProperties } = {
     borderBottom: '1px solid #ddd',
     padding: '0.75rem',
     textAlign: 'left',
+    fontSize: '0.875rem',
+    position: 'relative',
+  },
+  saveButton: {
+    padding: '0.75rem 1.5rem',
+    backgroundColor: '#007bff',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
   },
 };
 

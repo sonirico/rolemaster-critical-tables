@@ -1,24 +1,24 @@
-export interface MetadatumComplex {
+export interface EffectComplex {
     ROUNDS?: number;
     VALUE?: number;
 }
 
-export type MetadatumNumeric = number;
+export type EffectNumeric = number;
 
-export interface Metadatum {
+export interface EffectGroup {
     DESC?: string;
     HP?: number;
-    P?: MetadatumComplex;
-    NP?: MetadatumNumeric;
-    STUN?: MetadatumComplex;
-    BONUS?: MetadatumComplex;
-    PE?: MetadatumComplex;
-    HPR?: MetadatumNumeric;
+    P?: EffectComplex;
+    NP?: EffectNumeric;
+    STUN?: EffectComplex;
+    BONUS?: EffectComplex;
+    PE?: EffectComplex;
+    HPR?: EffectNumeric;
 }
 
 export interface CritCell {
     text: string;
-    metadata: Metadatum[];
+    metadata: EffectGroup[];
 }
 
 export interface CritRow {
@@ -38,5 +38,14 @@ export interface CritTable {
     rows: CritRow[];
 }
 
-
 export type CritColumn = 'A' | 'B' | 'C' | 'D' | 'E';
+
+export const effectNames = ['DESC', 'HP', 'STUN', 'P', 'NP', 'BONUS', 'PE', 'HPR'];
+
+export const isEffectComplex = (key: string): boolean => {
+    return ['P', 'STUN', 'BONUS', 'PE'].includes(key);
+};
+
+export const isEffectNumeric = (key: string): boolean => {
+    return ['HP', 'NP', 'HPR'].includes(key);
+};
