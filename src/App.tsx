@@ -6,12 +6,17 @@ import { getDefaultTableSchema } from './defaultTableSchema';
 import { styles } from './styles';
 import TableEditor from './TableEditor';
 import ModalTableDelete from './ModalTableDelete';
+import ModalImportJson from './ModalImportJson'; // Import the new modal component
+import ModalJsonEditor from './ModalJsonEditor'; // Import the new modal component
 
 function App() {
   const [critTables, setCritTables] = useState<CritTable[]>([]);
   const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
   const [tableToDelete, setTableToDelete] = useState<CritTable | null>(null);
   const [newTableName, setNewTableName] = useState<string>('');
+  const [showImportModal, setShowImportModal] = useState<boolean>(false);
+  const [showJsonEditorModal, setShowJsonEditorModal] = useState<boolean>(false);
+  const [tableToEditAsJson, setTableToEditAsJson] = useState<CritTable | null>(null);
 
   useEffect(() => {
     const tables = getTables();
@@ -92,6 +97,29 @@ function App() {
     document.body.removeChild(link);
   };
 
+  const handleImport = (json: string): void => {
+    try {
+      const importedTable: CritTable = JSON.parse(json);
+      const updatedTables = addTable(importedTable);
+      setCritTables(updatedTables);
+      setShowImportModal(false);
+    } catch (error) {
+      console.error('Invalid JSON:', error);
+    }
+  };
+
+  const handleEditAsJson = (table: CritTable): void => {
+    setTableToEditAsJson(table);
+    setShowJsonEditorModal(true);
+  };
+
+  const handleUpdateTableFromJson = (updatedTable: CritTable): void => {
+    const updatedTables = updateTable(updatedTable);
+    setCritTables(updatedTables);
+    setShowJsonEditorModal(false);
+    setTableToEditAsJson(null);
+  };
+
   return (
     <>
       <div style={styles.container}>
@@ -105,10 +133,11 @@ function App() {
             value={newTableName}
             onChange={(e) => setNewTableName(e.target.value)}
           />
-          <button style={styles.button}
-            onClick={handleCreate}
-          >
+          <button style={styles.button} onClick={handleCreate}>
             Crear
+          </button>
+          <button style={styles.button} onClick={() => setShowImportModal(true)}>
+            Importar desde JSON
           </button>
         </div>
 
@@ -142,6 +171,12 @@ function App() {
                   >
                     Exportar
                   </button>
+                  <button
+                    style={{ ...styles.actionButton }}
+                    onClick={() => handleEditAsJson(table)}
+                  >
+                    Editar como JSON
+                  </button>
                 </td>
               </tr>
             ))}
@@ -161,6 +196,19 @@ function App() {
           <TableEditor
             table={editingTable}
             onSave={handleSaveTable}
+          />
+        )}
+        {showImportModal && (
+          <ModalImportJson
+            onImport={handleImport}
+            onClose={() => setShowImportModal(false)}
+          />
+        )}
+        {showJsonEditorModal && tableToEditAsJson && (
+          <ModalJsonEditor
+            table={tableToEditAsJson}
+            onUpdate={handleUpdateTableFromJson}
+            onClose={() => setShowJsonEditorModal(false)}
           />
         )}
       </div>

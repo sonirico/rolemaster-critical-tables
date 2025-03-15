@@ -1,0 +1,1115 @@
+{
+    "id": 123234902348,
+    "name": "heat",
+    "filename": "heat.json",
+    "rows": [
+        {
+            "lower": "01",
+            "upper": "05",
+            "A": {
+                "text": "The air around foe shimmers. Pfft. Attack is wild and boils nearby water.",
+                "metadata": []
+            },
+            "B": {
+                "text": "Hot smoke makes foe's eyes red.",
+                "metadata": []
+            },
+            "C": {
+                "text": "Foe evades the embrace of the flames.",
+                "metadata": []
+            },
+            "D": {
+                "text": "Foe avoids the blast but not the heat.",
+                "metadata": [
+                    {
+                        "HP": 2
+                    }
+                ]
+            },
+            "E": {
+                "text": "Foe avoids the blast but not the heat.",
+                "metadata": [
+                    {
+                        "HP": 3
+                    }
+                ]
+            }
+        },
+        {
+            "lower": "06",
+            "upper": "10",
+            "A": {
+                "text": "Hot wind makes foe uncomfortable.",
+                "metadata": [
+                    {
+                        "HP": 1
+                    }
+                ]
+            },
+            "B": {
+                "text": "Singe foe's exposed skin.",
+                "metadata": [
+                    {
+                        "HP": 2
+                    }
+                ]
+            },
+            "C": {
+                "text": "Sparks and smoke dance all over foe.",
+                "metadata": [
+                    {
+                        "HP": 3
+                    }
+                ]
+            },
+            "D": {
+                "text": "Flames surround foe. He seems to step out of them unharmed.",
+                "metadata": [
+                    {
+                        "HP": 4
+                    }
+                ]
+            },
+            "E": {
+                "text": "Sweltering heat reaches out for foe. He evades. You have initiative.",
+                "metadata": [
+                    {
+                        "HP": 4
+                    }
+                ]
+            }
+        },
+        {
+            "lower": "11",
+            "upper": "15",
+            "A": {
+                "text": "Foe covers his face and leaps aside. You have initiative.",
+                "metadata": [
+                    {
+                        "HP": 2
+                    }
+                ]
+            },
+            "B": {
+                "text": "Foe simmers in his clothes. He is unfocused and you have initiative.",
+                "metadata": [
+                    {
+                        "HP": 2
+                    }
+                ]
+            },
+            "C": {
+                "text": "Foe suspects that he is on fire. He is wrong. You gain the initiative.",
+                "metadata": [
+                    {
+                        "HP": 3
+                    }
+                ]
+            },
+            "D": {
+                "text": "Foe is enshrouded by smoke. The heat harms him little. You have initiative.",
+                "metadata": [
+                    {
+                        "HP": 4
+                    }
+                ]
+            },
+            "E": {
+                "text": "Flash unbalances foe and sends him on the defensive. You have initiative.",
+                "metadata": [
+                    {
+                        "HP": 6,
+                        "STUN": {
+                            "ROUNDS": 1
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "lower": "16",
+            "upper": "20",
+            "A": {
+                "text": "Blast stings foe's hands and arms. You have the initiative.",
+                "metadata": [
+                    {
+                        "HP": 3
+                    }
+                ]
+            },
+            "B": {
+                "text": "Assault blinds foe for a moment. You have 2 rounds of initiative.",
+                "metadata": [
+                    {
+                        "HP": 5
+                    }
+                ]
+            },
+            "C": {
+                "text": "Hair and bowstrings are singed. You have 2 rounds of initiative.",
+                "metadata": [
+                    {
+                        "HP": 6
+                    }
+                ]
+            },
+            "D": {
+                "text": "Foe strikes out at the flames to protect himself. It seems to work well enough.",
+                "metadata": [
+                    {
+                        "HP": 7,
+                        "P": {
+                            "ROUNDS": 1
+                        }
+                    }
+                ]
+            },
+            "E": {
+                "text": "Foe fails to avoid some of the attack and almost falls down.",
+                "metadata": [
+                    {
+                        "HP": 7,
+                        "P": {
+                            "ROUNDS": 1
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "lower": "21",
+            "upper": "35",
+            "A": {
+                "text": "Foe's chest and side heat up and garments smolder from assault.",
+                "metadata": [
+                    {
+                        "HP": 4,
+                        "STUN": {
+                            "ROUNDS": 1
+                        }
+                    }
+                ]
+            },
+            "B": {
+                "text": "Fire-laden blast forces foe back. Any containers of water boil and burst open.",
+                "metadata": [
+                    {
+                        "HP": 6
+                    }
+                ]
+            },
+            "C": {
+                "text": "Disorient foe with a tricky shot. Garments smolder suspiciously.",
+                "metadata": [
+                    {
+                        "HP": 7,
+                        "P": {
+                            "ROUNDS": 1
+                        },
+                        "HPR": 1
+                    }
+                ]
+            },
+            "D": {
+                "text": "With a burst of flame, you cover foe with heated air. Foe jumps back.",
+                "metadata": [
+                    {
+                        "HP": 8,
+                        "P": {
+                            "ROUNDS": 2
+                        },
+                        "HPR": 1
+                    }
+                ]
+            },
+            "E": {
+                "text": "Blister foe's weapon arm. He gives ground to escape the heat.",
+                "metadata": [
+                    {
+                        "HP": 9,
+                        "P": {
+                            "ROUNDS": 2
+                        },
+                        "HPR": 2
+                    }
+                ]
+            }
+        },
+        {
+            "lower": "36",
+            "upper": "45",
+            "A": {
+                "text": "Hot winds dance around foe parching his exposed skin. He puts up a desperate defence.",
+                "metadata": [
+                    {
+                        "HP": 6,
+                        "P": {
+                            "ROUNDS": 1
+                        }
+                    }
+                ]
+            },
+            "B": {
+                "text": "Foe's shield side is swathed in fire. He may use a shield to avoid the attack, but it combust. Shield hand is burned.",
+                "metadata": [
+                    {
+                        "DESC": "With shield",
+                        "HP": 3,
+                        "P": {
+                            "ROUNDS": 3
+                        }
+                    },
+                    {
+                        "DESC": "Without shield",
+                        "HP": 7,
+                        "P": {
+                            "ROUNDS": 1
+                        },
+                        "HPR": 1
+                    }
+                ]
+            },
+            "C": {
+                "text": "Heat catchs foe in lower leg. You gain initiative while foe regains his balance. The pain stays with him.",
+                "metadata": [
+                    {
+                        "DESC": "Default",
+                        "HP": 8,
+                        "P": {
+                            "ROUNDS": 2
+                        },
+                        "HPR": 1
+                    },
+                    {
+                        "DESC": "If not wet",
+                        "HP": 9,
+                        "HPR": 2
+                    },
+                    {
+                        "DESC": "If wet",
+                        "HP": 6,
+                        "P": {
+                            "ROUNDS": 2
+                        }
+                    }
+                ]
+            },
+            "D": {
+                "text": "Cover foe with a flash fire. Exposed skin burns. The flames bite deep and the pain is great.",
+                "metadata": [
+                    {
+                        "DESC": "With backpack",
+                        "HP": 8,
+                        "HPR": 1
+                    },
+                    {
+                        "DESC": "Without backpack",
+                        "HP": 10,
+                        "HPR": 3
+                    }
+                ]
+            },
+            "E": {
+                "text": "Strike to side and back ignite foe's cloak and pack. Neck and shoulder are lightly burned.",
+                "metadata": []
+            }
+        },
+        {
+            "lower": "46",
+            "upper": "50",
+            "A": {
+                "text": "Clothes smoke, then burn. Foe flails his arms trying to put them out. The pain endures longer than the flames.",
+                "metadata": [
+                    {
+                        "HP": 7,
+                        "P": {
+                            "ROUNDS": 1
+                        },
+                        "HPR": 1
+                    }
+                ]
+            },
+            "B": {
+                "text": "Foe evades most of the damage with some grace. The remainder scorches his side lightly.",
+                "metadata": [
+                    {
+                        "HP": 8,
+                        "P": {
+                            "ROUNDS": 2
+                        },
+                        "HPR": 1
+                    }
+                ]
+            },
+            "C": {
+                "text": "Flame spreads up foe's side and snaps at his arm and face. Exposed areas are lightly burned.",
+                "metadata": [
+                    {
+                        "HP": 9,
+                        "STUN": {
+                            "ROUNDS": 1
+                        },
+                        "HPR": 2
+                    }
+                ]
+            },
+            "D": {
+                "text": "Assault lands on foe's weapon arm. He makes a supreme effort to pull his arm away. Foe is unable to protect himself.",
+                "metadata": [
+                    {
+                        "HP": 10,
+                        "STUN": {
+                            "ROUNDS": 1
+                        },
+                        "HPR": 3
+                    }
+                ]
+            },
+            "E": {
+                "text": "Foe blocks flames with his weapon. A wooden weapon is destroyed. A metal weapon becomes too hot to hold.",
+                "metadata": [
+                    {
+                        "HP": 12,
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "HPR": 3
+                    }
+                ]
+            }
+        },
+        {
+            "lower": "51",
+            "upper": "55",
+            "A": {
+                "text": "Spark sets a piece of foe's equipment on fire. Foe must remove the item.",
+                "metadata": [
+                    {
+                        "HP": 8,
+                        "P": {
+                            "ROUNDS": 2
+                        },
+                        "HPR": 1
+                    }
+                ]
+            },
+            "B": {
+                "text": "Foe ducks; attack torches back and the ground behind him. He is shaken.",
+                "metadata": [
+                    {
+                        "HP": 8,
+                        "STUN": {
+                            "ROUNDS": 1
+                        },
+                        "HPR": 2
+                    }
+                ]
+            },
+            "C": {
+                "text": "Hard strike to side, armor does not help. Blow leaves a blistering mark.",
+                "metadata": [
+                    {
+                        "HP": 9,
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "HPR": 3
+                    }
+                ]
+            },
+            "D": {
+                "text": "Foe is aflame and takes damage for 3 rounds while he burns.",
+                "metadata": [
+                    {
+                        "HP": 10,
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "HPR": 3
+                    }
+                ]
+            },
+            "E": {
+                "text": "Your flames reach out. Foe frantically leaps back . His chest is burned.",
+                "metadata": [
+                    {
+                        "HP": 13,
+                        "STUN": {
+                            "ROUNDS": 1
+                        },
+                        "NP": 1,
+                        "HPR": 3
+                    }
+                ]
+            }
+        },
+        {
+            "lower": "56",
+            "upper": "60",
+            "A": {
+                "text": "Assault ignites foe's back. Equipment crackles as it burns and falls clear.",
+                "metadata": [
+                    {
+                        "HP": 9,
+                        "STUN": {
+                            "ROUNDS": 1
+                        },
+                        "HPR": 2
+                    }
+                ]
+            },
+            "B": {
+                "text": "Engulf foe in flame and smoke. The flames die down; foe escapes death.",
+                "metadata": [
+                    {
+                        "HP": 10,
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "HPR": 2
+                    }
+                ]
+            },
+            "C": {
+                "text": "Strong blast hits foe in legs; they nearly give with pain. He recoils 5 ft.",
+                "metadata": [
+                    {
+                        "DESC": "With leg armor",
+                        "HP": 8,
+                        "P": {
+                            "ROUNDS": 2
+                        }
+                    },
+                    {
+                        "DESC": "Without leg armor",
+                        "HP": 10,
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "HPR": 2
+                    }
+                ]
+            },
+            "D": {
+                "text": "Flames dance around foe's head. He seeks to get clear and almost falls.",
+                "metadata": [
+                    {
+                        "DESC": "With helmet",
+                        "HP": 3,
+                        "STUN": {
+                            "ROUNDS": 2
+                        }
+                    },
+                    {
+                        "DESC": "Without helmet",
+                        "HP": 12,
+                        "HPR": 2
+                    }
+                ]
+            },
+            "E": {
+                "text": "Garments over foe's shoulders and head are set afire. He is frantic.",
+                "metadata": [
+                    {
+                        "DESC": "With helm",
+                        "HP": 8,
+                        "STUN": {
+                            "ROUNDS": 1
+                        },
+                        "NP": 1,
+                        "HPR": 1
+                    },
+                    {
+                        "DESC": "Without helm",
+                        "HP": 15,
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "NP": 1,
+                        "HPR": 3
+                    }
+                ]
+            }
+        },
+        {
+            "lower": "61",
+            "upper": "65",
+            "A": {
+                "text": "Well placed. Strike slams into foe's weapon arm. Garments are burned. Foe's evasion is comical.",
+                "metadata": [
+                    {
+                        "DESC": "With arm greaves",
+                        "HP": 7,
+                        "HPR": 1
+                    },
+                    {
+                        "DESC": "Without arm greaves",
+                        "HP": 10,
+                        "HPR": 3
+                    }
+                ]
+            },
+            "B": {
+                "text": "Concentrated strike burns through foe's leg. The flames do not last but foe's skin is exposed. Skin blisters.",
+                "metadata": [
+                    {
+                        "HP": 9,
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "NP": 1,
+                        "HPR": 2,
+                        "DESC": "-5 penalty (approx)"
+                    }
+                ]
+            },
+            "C": {
+                "text": "Flames burst against foe's side. He stumbles but does not fall. He tries to smother the fire with his garments.",
+                "metadata": [
+                    {
+                        "HP": 10,
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "NP": 1,
+                        "HPR": 3,
+                        "DESC": "-10 penalty (approx)"
+                    }
+                ]
+            },
+            "D": {
+                "text": "Foe's shield arm and shield are on fire. Dropping the shield only helps a little. The flames cling to his garments.",
+                "metadata": [
+                    {
+                        "DESC": "With shield",
+                        "HP": 10,
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "NP": 1,
+                        "HPR": 4
+                    },
+                    {
+                        "DESC": "Without shield",
+                        "HP": 13,
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "NP": 1,
+                        "HPR": 6
+                    }
+                ]
+            },
+            "E": {
+                "text": "Searing strike to foe's legs. Exposed skin and muscle is burned. Infection will follow. Foe struggles to stay up.",
+                "metadata": [
+                    {
+                        "HP": 15,
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "NP": 1,
+                        "HPR": 4,
+                        "DESC": "Approx -10 penalty"
+                    }
+                ]
+            }
+        },
+        {
+            "lower": "66",
+            "upper": "66",
+            "A": {
+                "text": "Flame grapples foe's shield and chest. The wound is grave and infection will follow.",
+                "metadata": [
+                    {
+                        "HP": 9,
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "NP": 1,
+                        "DESC": "-15 penalty (approx)"
+                    }
+                ]
+            },
+            "B": {
+                "text": "Fire lands along side foe's face. His hair, cheek, and ear are engulfed. Foe throws himself to the ground.",
+                "metadata": [
+                    {
+                        "HP": 10,
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "HPR": 4
+                    }
+                ]
+            },
+            "C": {
+                "text": "Blaze consumes garments on weapon arm. Any metal covering heats up. Foe falls from the blast.",
+                "metadata": [
+                    {
+                        "HP": 12,
+                        "HPR": 3
+                    }
+                ]
+            },
+            "D": {
+                "text": "Foe's face and weapon hand are scalded. Foe is having trouble opening his eyes.",
+                "metadata": [
+                    {
+                        "STUN": {
+                            "ROUNDS": 10
+                        },
+                        "DESC": "-10 penalty (approx)",
+                        "HPR": 6
+                    }
+                ]
+            },
+            "E": {
+                "text": "Foe's combustible garments turn him into a torch. He runs a short distance, drops and dies in 6 rounds.",
+                "metadata": [
+                    {
+                        "HP": 25
+                    }
+                ]
+            }
+        },
+        {
+            "lower": "67",
+            "upper": "70",
+            "A": {
+                "text": "Toast foe's side and send him stumbling back 5 feet away from you. He blocks his face against any renewed assault.",
+                "metadata": [
+                    {
+                        "HP": 8,
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "HPR": 2,
+                        "DESC": "-5 penalty (approx)"
+                    }
+                ]
+            },
+            "B": {
+                "text": "Flames seek out foe with a predator's lust. He throws garments and equipment off franticly to satisfy the blaze. Foe is busy staying alive.",
+                "metadata": [
+                    {
+                        "HP": 7,
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "NP": 1,
+                        "HPR": 2,
+                        "DESC": "-10 penalty (approx)"
+                    }
+                ]
+            },
+            "C": {
+                "text": "Back blast. Foe drops to one knee and then rises again with some difficulty. Some of his garments still smoke. Skin is blistered badly.",
+                "metadata": [
+                    {
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "NP": 1,
+                        "HPR": 2,
+                        "DESC": "-15 penalty (approx)"
+                    }
+                ]
+            },
+            "D": {
+                "text": "Foe leaps back from your deadly inferno. He escapes death but falls on his back. He is prone for 1 round. Minor arm burns.",
+                "metadata": [
+                    {
+                        "HP": 15,
+                        "STUN": {
+                            "ROUNDS": 1
+                        },
+                        "HPR": 3
+                    }
+                ]
+            },
+            "E": {
+                "text": "Blast leaps onto foe's shield arm. Any shield foe has and his arm are on fire. The heat penetrates deep and foe's face shows it.",
+                "metadata": [
+                    {
+                        "HPR": 5,
+                        "DESC": "-15 penalty (approx)"
+                    }
+                ]
+            }
+        },
+        {
+            "lower": "71",
+            "upper": "75",
+            "A": {
+                "text": "Fire consumes garments and hair. Blinding smoke keeps foe's defenses poorly aligned.",
+                "metadata": [
+                    {
+                        "HP": 12,
+                        "STUN": {
+                            "ROUNDS": 1
+                        },
+                        "NP": 1
+                    }
+                ]
+            },
+            "B": {
+                "text": "Chest and arm blast damages organic armor and engulfs any wood on foe. Metal armor heats up painfully.",
+                "metadata": [
+                    {
+                        "HP": 9,
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "NP": 1,
+                        "DESC": "-15 penalty, +10 bonus next (?) - interpret"
+                    }
+                ]
+            },
+            "C": {
+                "text": "Chest blast. Organic armor is destroyed. Metal armor should be removed quickly.",
+                "metadata": [
+                    {
+                        "STUN": {
+                            "ROUNDS": 3
+                        },
+                        "HPR": 6,
+                        "DESC": "Approx -15 penalty"
+                    }
+                ]
+            },
+            "D": {
+                "text": "Foe's weapon arm is a conflagration. Hand and arm are useless. Muscles and nerves are damaged.",
+                "metadata": [
+                    {
+                        "STUN": {
+                            "ROUNDS": 6
+                        },
+                        "DESC": "Approx -50 penalty"
+                    }
+                ]
+            },
+            "E": {
+                "text": "Strike center of foe's chest. Flame spills in all directions. Foe is knocked down. Chest armor is destroyed.",
+                "metadata": [
+                    {
+                        "HP": 15,
+                        "HPR": 6,
+                        "DESC": "Approx -60 penalty"
+                    }
+                ]
+            }
+        },
+        {
+            "lower": "76",
+            "upper": "80",
+            "A": {
+                "text": "Foe's shield side engulfed in flame. Foe's shield is kindled if wooden.",
+                "metadata": [
+                    {
+                        "HP": 10,
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "NP": 1,
+                        "HPR": 2
+                    }
+                ]
+            },
+            "B": {
+                "text": "Abdomen entangled in flames. The flames will spread upward next turn if not extinguished. Foe sees the danger.",
+                "metadata": [
+                    {
+                        "HP": 20,
+                        "HPR": 2
+                    }
+                ]
+            },
+            "C": {
+                "text": "Strike engulfs foe's most exposed hand and burns it without mercy. Hand is useless. Arm clothing is destroyed.",
+                "metadata": [
+                    {
+                        "STUN": {
+                            "ROUNDS": 6
+                        },
+                        "DESC": "Approx -40 penalty"
+                    }
+                ]
+            },
+            "D": {
+                "text": "Foe's side is ignited by your strike and the wounds are deep. He smothers the fire but the damage is done.",
+                "metadata": [
+                    {
+                        "STUN": {
+                            "ROUNDS": 3
+                        },
+                        "NP": 1,
+                        "HPR": 5
+                    }
+                ]
+            },
+            "E": {
+                "text": "Blast lands on foe's side but spreads to arms and legs. A shield prevents arm damage but his hands are burned off.",
+                "metadata": [
+                    {
+                        "HP": 20,
+                        "STUN": {
+                            "ROUNDS": 12
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "lower": "81",
+            "upper": "85",
+            "A": {
+                "text": "Foe exposes his back while evading the strike. Blast scorches a small wound in his shoulder blade.",
+                "metadata": [
+                    {
+                        "HP": 8,
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "HPR": 2,
+                        "DESC": "-20 penalty"
+                    }
+                ]
+            },
+            "B": {
+                "text": "Strike knocks foe down on his back. The flames do not endure but much equipment is burned or crushed.",
+                "metadata": [
+                    {
+                        "STUN": {
+                            "ROUNDS": 1
+                        },
+                        "HPR": 2,
+                        "DESC": "Approx -20 penalty"
+                    }
+                ]
+            },
+            "C": {
+                "text": "Violent inferno destroys organic armor and ruins metal armor on leg. Much of the blast tumbles clear after impact.",
+                "metadata": [
+                    {
+                        "HP": 15,
+                        "STUN": {
+                            "ROUNDS": 9
+                        }
+                    }
+                ]
+            },
+            "D": {
+                "text": "Foe's arms and chest embrace your infernal strike. Arms are useless and foe's skin is open to the air.",
+                "metadata": [
+                    {
+                        "HP": 20
+                    }
+                ]
+            },
+            "E": {
+                "text": "Foe inhales flames scalding lungs and throat. Foe is active for 12 rnds (while he burns), then dies.",
+                "metadata": []
+            }
+        },
+        {
+            "lower": "86",
+            "upper": "90",
+            "A": {
+                "text": "Assault to foe's lower leg consumes covering. Foe falls down. One leg is on fire.",
+                "metadata": [
+                    {
+                        "HP": 10,
+                        "DESC": "Possible -10 penalty"
+                    }
+                ]
+            },
+            "B": {
+                "text": "Leg covering is set on fire by blast. It spreads quickly and foe is in trouble. The flames will grow if not put out.",
+                "metadata": [
+                    {
+                        "HP": 16,
+                        "STUN": {
+                            "ROUNDS": 3
+                        }
+                    }
+                ]
+            },
+            "C": {
+                "text": "Foe's shield side is devoured by flames. Head, arm, side, and leg have critical burns. If foe has a shield, it is destroyed instead of his arm.",
+                "metadata": [
+                    {
+                        "HP": 15,
+                        "STUN": {
+                            "ROUNDS": 6
+                        },
+                        "NP": 1,
+                        "DESC": "-85 penalty (approx)",
+                        "HPR": 3
+                    }
+                ]
+            },
+            "D": {
+                "text": "Blast engulfs lower half of foe's body. If foe has abdominal armor, he is knocked out. If not, he dies in 12 inactive rounds from organ damage.",
+                "metadata": [
+                    {
+                        "DESC": "With abdominal armor",
+                        "HPR": 2
+                    },
+                    {
+                        "DESC": "Without abdominal armor",
+                        "HP": 20,
+                        "STUN": {
+                            "ROUNDS": 12
+                        }
+                    }
+                ]
+            },
+            "E": {
+                "text": "Foe's lower body is badly burned. Nerves, organs and tissue destroyed. Foe is paralyzed and will die in 9 rounds from shock and dehydration.",
+                "metadata": []
+            }
+        },
+        {
+            "lower": "91",
+            "upper": "95",
+            "A": {
+                "text": "Blow to foe's head. If he has helmet it heats up like a furnace and must be painfully removed. Foe ears and cheeks are burned.",
+                "metadata": [
+                    {
+                        "DESC": "With helmet",
+                        "HP": 15,
+                        "STUN": {
+                            "ROUNDS": 3
+                        }
+                    },
+                    {
+                        "DESC": "No helmet",
+                        "HP": 12,
+                        "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "NP": 1,
+                        "DESC_2": "-30 penalty (approx)"
+                    }
+                ]
+            },
+            "B": {
+                "text": "Head strike. Force of blast removes any helmet worn. Hair, scalp and skin burn. Smoke and flame blind foe for 3 rnds.",
+                "metadata": [
+                    {
+                        "DESC": "With helmet",
+                        "HP": 10,
+                        "P": {
+                            "ROUNDS": 3
+                        },
+                        "HPR": 2
+                    },
+                    {
+                        "DESC": "No helmet",
+                        "HP": 18,
+                        "STUN": {
+                            "ROUNDS": 6
+                        },
+                        "NP": 1,
+                        "HPR": 4
+                    }
+                ]
+            },
+            "C": {
+                "text": "Trapped in the furnace of your blast, foe is overcome and falls down. He is unconscious and still burning.",
+                "metadata": [
+                    {
+                        "HP": 20,
+                        "STUN": {
+                            "ROUNDS": 12
+                        }
+                    }
+                ]
+            },
+            "D": {
+                "text": "Flames assault upper body. If foe has a full helm, he is blinded and in a coma for 2 days. If not, he dies in 6 rounds due to shock and brain damage.",
+                "metadata": []
+            },
+            "E": {
+                "text": "Foe is cremated before your very eyes. He remains standing for 6 rounds and then drops and dies. A small fire lingers. A horrible end.",
+                "metadata": []
+            }
+        },
+        {
+            "lower": "96",
+            "upper": "99",
+            "A": {
+                "text": "Blast lands on the weapon arm and climbs up to foe's neck. It burns all it touches. If foe has any organic neck covering it is destroyed.",
+                "metadata": [
+                    {
+                        "STUN": {
+                            "ROUNDS": 4
+                        },
+                        "NP": 1,
+                        "HPR": 8
+                    }
+                ]
+            },
+            "B": {
+                "text": "Flames burn into foe's throat. The damage is frightening. Foe's neck collapses in the flames. He drops and dies in 9 inactive rnds. He smells bad.",
+                "metadata": [
+                    {
+                        "HP": 20,
+                        "HPR": 12,
+                        "DESC": "+10 next round (maybe?)"
+                    }
+                ]
+            },
+            "C": {
+                "text": "Intense heat fuses metal, cloth and skin. Foe is unrecognizable. If no chest armor he is dead instantly. Otherwise he dies after 9 rounds of burning.",
+                "metadata": [
+                    {
+                        "HP": 20
+                    }
+                ]
+            },
+            "D": {
+                "text": "Foe is trapped in the furnace made by your attack. Organs are destroyed and foe's blood boils. He has no hope of survival and dies in 6 inactive rounds.",
+                "metadata": []
+            },
+            "E": {
+                "text": "Your foe is devoured by a hellfire of which even you are frightened. All combustibles within 10 ft ignite. Little will remain when the fire dies.",
+                "metadata": []
+            }
+        },
+        {
+            "lower": "100",
+            "upper": "100",
+            "A": {
+                "text": "Brutally scar the side of foe's face. Foe is knocked out. He loses 50 from his Appearance and 25 from his Presence.",
+                "metadata": [
+                    {
+                        "HP": 20,
+                        "HPR": 5
+                    }
+                ]
+            },
+            "B": {
+                "text": "Assault consumes clothing and tissue. Foe's arms and chest are without skin. Foe is paralyzed. Infection will follow.",
+                "metadata": [
+                    {
+                        "HP": 25
+                    }
+                ]
+            },
+            "C": {
+                "text": "Strike to foe's head. If he has a helmet, his head is broiled and he dies in 2 rnds. If no helmet he dies instantly.",
+                "metadata": []
+            },
+            "D": {
+                "text": "Every part of foe is ablaze. He dies in 2 rounds, making terrifying noises. He continues to burn for 12 rounds.",
+                "metadata": []
+            },
+            "E": {
+                "text": "Fire devours every part of foe in an instant. Bits of metal, teeth and bones shower to the ground.",
+                "metadata": []
+            }
+        }
+    ]
+}

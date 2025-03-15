@@ -1,4 +1,3 @@
-
 export const styles: { [key: string]: React.CSSProperties } = {
     container: {
         maxWidth: 900,
@@ -149,6 +148,58 @@ export const modalStyles: { [key: string]: React.CSSProperties } = {
     },
     button: {
         padding: '0.5rem 1rem',
+        cursor: 'pointer',
+    },
+    textarea: {
+        width: '100%',
+        height: '150px',
+        marginBottom: '1rem',
+        padding: '0.5rem',
+        borderRadius: '4px',
+        border: '1px solid #ddd',
+        fontSize: '1rem',
+    },
+    fullScreenOverlay: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0,0,0,0.8)',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 1000,
+    },
+    fullScreenModal: {
+        position: 'relative',
+        background: '#fff',
+        padding: '2rem',
+        maxWidth: '90%',
+        width: '90%',
+        height: '90%',
+        borderRadius: '8px',
+        boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    fullScreenTextarea: {
+        flex: 1,
+        width: '100%',
+        marginBottom: '1rem',
+        padding: '0.75rem',
+        borderRadius: '4px',
+        border: '1px solid #ccc',
+        fontSize: '1rem',
+        fontFamily: 'monospace',
+    },
+    closeButton: {
+        position: 'absolute',
+        top: '1rem',
+        right: '1rem',
+        background: 'transparent',
+        border: 'none',
+        fontSize: '1.5rem',
         cursor: 'pointer',
     },
 };
