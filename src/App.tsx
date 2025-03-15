@@ -105,6 +105,7 @@ function App() {
       setShowImportModal(false);
     } catch (error) {
       console.error('Invalid JSON:', error);
+      alert('Error al importar: JSON inválido');
     }
   };
 

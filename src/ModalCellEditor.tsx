@@ -15,6 +15,18 @@ const EditModal: React.FC<EditModalProps> = ({ cellData, onSave, onClose }) => {
         setEffectGroups(cellData.data.metadata || []);
     }, [cellData]);
 
+    useEffect(() => {
+        const handleEsc = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                onClose();
+            }
+        };
+        window.addEventListener('keydown', handleEsc);
+        return () => {
+            window.removeEventListener('keydown', handleEsc);
+        };
+    }, [onClose]);
+
     const handleSave = () => {
         const cleanedEffectGroups = effectGroups.map(group => {
             const cleanedGroup: EffectGroup = {};

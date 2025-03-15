@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { modalStyles } from './styles';
 
@@ -9,6 +9,18 @@ interface ModalImportJsonProps {
 
 const ModalImportJson: React.FC<ModalImportJsonProps> = ({ onImport, onClose }) => {
     const [json, setJson] = useState<string>('');
+
+    useEffect(() => {
+        const handleEsc = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                onClose();
+            }
+        };
+        window.addEventListener('keydown', handleEsc);
+        return () => {
+            window.removeEventListener('keydown', handleEsc);
+        };
+    }, [onClose]);
 
     const handleImport = () => {
         onImport(json);

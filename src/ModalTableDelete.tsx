@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom';
 import { modalStyles } from './styles';
+import { useEffect } from 'react';
 
 interface DeleteModalProps {
     tableName: string
@@ -8,6 +9,18 @@ interface DeleteModalProps {
 }
 
 function ModalTableDelete({ tableName, onConfirm, onCancel }: DeleteModalProps) {
+    useEffect(() => {
+        const handleEsc = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                onCancel();
+            }
+        };
+        window.addEventListener('keydown', handleEsc);
+        return () => {
+            window.removeEventListener('keydown', handleEsc);
+        };
+    }, [onCancel]);
+
     return ReactDOM.createPortal(
         <div style={modalStyles.overlay}>
             <div style={modalStyles.modal}>
