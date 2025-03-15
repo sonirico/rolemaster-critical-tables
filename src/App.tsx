@@ -114,8 +114,15 @@ function App() {
   };
 
   const handleUpdateTableFromJson = (updatedTable: CritTable): void => {
+    // Actualizar las tablas en el estado
     const updatedTables = updateTable(updatedTable);
-    setCritTables(updatedTables);
+    setCritTables([...updatedTables]);
+
+    // Si estamos editando la misma tabla en el editor celda a celda, actualizar esa referencia también
+    if (editingTable && editingTable.id === updatedTable.id) {
+      setEditingTable(updatedTable);
+    }
+
     setShowJsonEditorModal(false);
     setTableToEditAsJson(null);
   };

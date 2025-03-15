@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { CritTable } from './types';
 import { modalStyles } from './styles';
+import { updateTable } from './RepositoryTable';
 
 interface ModalJsonEditorProps {
     table: CritTable;
@@ -10,7 +11,11 @@ interface ModalJsonEditorProps {
 }
 
 const ModalJsonEditor: React.FC<ModalJsonEditorProps> = ({ table, onUpdate, onClose }) => {
-    const [json, setJson] = useState<string>(JSON.stringify(table, null, 2));
+    const [jsonText, setJsonText] = useState<string>('');
+
+    useEffect(() => {
+        setJsonText(JSON.stringify(table, null, 2));
+    }, [table]);
 
     useEffect(() => {
         const handleEsc = (event: KeyboardEvent) => {
@@ -24,12 +29,20 @@ const ModalJsonEditor: React.FC<ModalJsonEditorProps> = ({ table, onUpdate, onCl
         };
     }, [onClose]);
 
-    const handleUpdate = () => {
+    const handleSave = () => {
         try {
-            const updatedTable: CritTable = JSON.parse(json);
+            const updatedTable: CritTable = JSON.parse(jsonText);
+            // First update localStorage
+            const tables = updateTable(updatedTable);
+
+            // Then force a refresh of the parent component
             onUpdate(updatedTable);
+
+            // Only close after everything is done
+            onClose();
         } catch (error) {
-            console.error('Invalid JSON:', error);
+            alert(`Error parsing JSON: ${error}`);
+            console.error('Error parsing JSON:', error);
         }
     };
 
@@ -37,15 +50,15 @@ const ModalJsonEditor: React.FC<ModalJsonEditorProps> = ({ table, onUpdate, onCl
         <div style={modalStyles.fullScreenOverlay}>
             <div style={modalStyles.fullScreenModal}>
                 <button style={modalStyles.closeButton} onClick={onClose}>×</button>
-                <h2>Editar Tabla como JSON</h2>
+                <h2>Editar {table.name} como JSON</h2>
                 <textarea
                     style={modalStyles.fullScreenTextarea}
-                    value={json}
-                    onChange={(e) => setJson(e.target.value)}
+                    value={jsonText}
+                    onChange={(e) => setJsonText(e.target.value)}
                 />
                 <div style={modalStyles.btnRow}>
-                    <button style={modalStyles.button} onClick={handleUpdate}>
-                        Actualizar
+                    <button style={modalStyles.button} onClick={handleSave}>
+                        Guardar
                     </button>
                     <button style={modalStyles.button} onClick={onClose}>
                         Cancelar

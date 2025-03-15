@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useReactTable, ColumnDef, flexRender, getCoreRowModel } from '@tanstack/react-table';
 import { CritTable, CritRow, CritCell, CritColumn } from './types';
@@ -43,6 +43,11 @@ const CellJson = styled.pre`
 const TableEditor: React.FC<{ table: CritTable; onSave: (updatedTable: CritTable) => void; }> = ({ table, onSave }) => {
   const [rows, setRows] = useState<CritRow[]>(table.rows);
   const [selectedCell, setSelectedCell] = useState<{ rowIndex: number; column: CritColumn; data: CritCell | undefined } | null>(null);
+
+  // Añadir useEffect para actualizar las filas cuando cambie la tabla
+  useEffect(() => {
+    setRows(table.rows);
+  }, [table]);
 
   const handleSaveNumberCell = (rowIndex: number, column: 'lower' | 'upper', updatedValue: number) => {
     const updatedRows = [...rows];
