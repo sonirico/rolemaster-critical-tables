@@ -1,25 +1,29 @@
 {
     "id": 123234902348,
     "name": "heat",
-    "filename": "heat.json",
+    "filename": "heat_es.json",
     "rows": [
         {
             "lower": "01",
             "upper": "05",
             "A": {
-                "text": "The air around foe shimmers. Pfft. Attack is wild and boils nearby water.",
+                "text": "El aire alrededor del enemigo tiembla. ¡Pfft! Tu ataque flamígero hierve el agua cercana.",
                 "metadata": []
             },
             "B": {
-                "text": "Hot smoke makes foe's eyes red.",
+                "text": "El humo ardiente enrojece los ojos del adversario.",
                 "metadata": []
             },
             "C": {
-                "text": "Foe evades the embrace of the flames.",
-                "metadata": []
+                "text": "El adversario evade el abrazo mortal de las llamas.",
+                "metadata": [
+                    {
+                        "HP": "1"
+                    }
+                ]
             },
             "D": {
-                "text": "Foe avoids the blast but not the heat.",
+                "text": "El enemigo esquiva la explosión pero no el calor abrasador.",
                 "metadata": [
                     {
                         "HP": 2
@@ -27,7 +31,7 @@
                 ]
             },
             "E": {
-                "text": "Foe avoids the blast but not the heat.",
+                "text": "El oponente elude la explosión mas no el intenso calor.",
                 "metadata": [
                     {
                         "HP": 3
@@ -39,7 +43,7 @@
             "lower": "06",
             "upper": "10",
             "A": {
-                "text": "Hot wind makes foe uncomfortable.",
+                "text": "Un viento ardiente causa malestar al adversario.",
                 "metadata": [
                     {
                         "HP": 1
@@ -47,15 +51,15 @@
                 ]
             },
             "B": {
-                "text": "Singe foe's exposed skin.",
+                "text": "Las llamas chamuscan la piel expuesta del enemigo.",
                 "metadata": [
                     {
-                        "HP": 2
+                        "HP": "3"
                     }
                 ]
             },
             "C": {
-                "text": "Sparks and smoke dance all over foe.",
+                "text": "Chispas y humo danzan sobre el cuerpo del adversario.",
                 "metadata": [
                     {
                         "HP": 3
@@ -63,7 +67,7 @@
                 ]
             },
             "D": {
-                "text": "Flames surround foe. He seems to step out of them unharmed.",
+                "text": "Las llamas rodean al enemigo, quien parece salir ileso de ellas.",
                 "metadata": [
                     {
                         "HP": 4
@@ -71,10 +75,10 @@
                 ]
             },
             "E": {
-                "text": "Sweltering heat reaches out for foe. He evades. You have initiative.",
+                "text": "Un calor sofocante alcanza al adversario, pero logra evadirlo. Tienes la iniciativa.",
                 "metadata": [
                     {
-                        "HP": 4
+                        "HP": "4"
                     }
                 ]
             }
@@ -83,15 +87,15 @@
             "lower": "11",
             "upper": "15",
             "A": {
-                "text": "Foe covers his face and leaps aside. You have initiative.",
+                "text": "El enemigo cubre su rostro y salta a un lado. Tienes la iniciativa.",
                 "metadata": [
                     {
-                        "HP": 2
+                        "HP": "2"
                     }
                 ]
             },
             "B": {
-                "text": "Foe simmers in his clothes. He is unfocused and you have initiative.",
+                "text": "El adversario se sofoca dentro de sus ropajes. Está confundido y tienes la iniciativa.",
                 "metadata": [
                     {
                         "HP": 2
@@ -99,7 +103,7 @@
                 ]
             },
             "C": {
-                "text": "Foe suspects that he is on fire. He is wrong. You gain the initiative.",
+                "text": "El oponente cree estar en llamas. Se equivoca. Ganas la iniciativa.",
                 "metadata": [
                     {
                         "HP": 3
@@ -107,7 +111,7 @@
                 ]
             },
             "D": {
-                "text": "Foe is enshrouded by smoke. The heat harms him little. You have initiative.",
+                "text": "El adversario queda envuelto en humo. El calor apenas lo daña. Tienes la iniciativa.",
                 "metadata": [
                     {
                         "HP": 4
@@ -115,7 +119,7 @@
                 ]
             },
             "E": {
-                "text": "Flash unbalances foe and sends him on the defensive. You have initiative.",
+                "text": "El destello desestabiliza al enemigo y lo fuerza a la defensiva. Tienes la iniciativa.",
                 "metadata": [
                     {
                         "HP": 6,
@@ -130,7 +134,7 @@
             "lower": "16",
             "upper": "20",
             "A": {
-                "text": "Blast stings foe's hands and arms. You have the initiative.",
+                "text": "La explosión abrasa las manos y brazos del adversario. Tienes la iniciativa.",
                 "metadata": [
                     {
                         "HP": 3
@@ -138,26 +142,24 @@
                 ]
             },
             "B": {
-                "text": "Assault blinds foe for a moment. You have 2 rounds of initiative.",
+                "text": "El ataque ciega momentáneamente al enemigo. Tienes 2 rondas de iniciativa.",
                 "metadata": [
-                    {
-                        "HP": 5
-                    }
+                    {}
                 ]
             },
             "C": {
-                "text": "Hair and bowstrings are singed. You have 2 rounds of initiative.",
+                "text": "Su cabello y las cuerdas de arco se chamuscan. Tienes 2 rondas de iniciativa.",
                 "metadata": [
                     {
-                        "HP": 6
+                        "HP": "5"
                     }
                 ]
             },
             "D": {
-                "text": "Foe strikes out at the flames to protect himself. It seems to work well enough.",
+                "text": "El adversario golpea las llamas para protegerse. Parece funcionar, apenas.",
                 "metadata": [
                     {
-                        "HP": 7,
+                        "HP": "6",
                         "P": {
                             "ROUNDS": 1
                         }
@@ -165,7 +167,7 @@
                 ]
             },
             "E": {
-                "text": "Foe fails to avoid some of the attack and almost falls down.",
+                "text": "El enemigo no logra esquivar parte del ataque y pierde el equilibrio.",
                 "metadata": [
                     {
                         "HP": 7,
@@ -180,7 +182,7 @@
             "lower": "21",
             "upper": "35",
             "A": {
-                "text": "Foe's chest and side heat up and garments smolder from assault.",
+                "text": "El pecho y costado del enemigo se calientan y sus ropajes humean por el asalto ardiente.",
                 "metadata": [
                     {
                         "HP": 4,
@@ -191,7 +193,7 @@
                 ]
             },
             "B": {
-                "text": "Fire-laden blast forces foe back. Any containers of water boil and burst open.",
+                "text": "La explosión cargada de fuego obliga al adversario a retroceder. Cualquier odre o cantimplora hierve y estalla.",
                 "metadata": [
                     {
                         "HP": 6
@@ -199,7 +201,7 @@
                 ]
             },
             "C": {
-                "text": "Disorient foe with a tricky shot. Garments smolder suspiciously.",
+                "text": "Desorientas al enemigo con un disparo de fuego astuto. Sus ropajes humean de forma sospechosa.",
                 "metadata": [
                     {
                         "HP": 7,
@@ -211,7 +213,7 @@
                 ]
             },
             "D": {
-                "text": "With a burst of flame, you cover foe with heated air. Foe jumps back.",
+                "text": "Con una explosión de llamas, envuelves al adversario en aire ardiente. El enemigo salta hacia atrás.",
                 "metadata": [
                     {
                         "HP": 8,
@@ -223,7 +225,7 @@
                 ]
             },
             "E": {
-                "text": "Blister foe's weapon arm. He gives ground to escape the heat.",
+                "text": "Ampolla el brazo armado del enemigo. Retrocede para escapar del calor abrasador.",
                 "metadata": [
                     {
                         "HP": 9,
@@ -239,7 +241,7 @@
             "lower": "36",
             "upper": "45",
             "A": {
-                "text": "Hot winds dance around foe parching his exposed skin. He puts up a desperate defence.",
+                "text": "Vientos ardientes danzan alrededor del adversario, resecando su piel expuesta. Se defiende desesperadamente.",
                 "metadata": [
                     {
                         "HP": 6,
@@ -250,17 +252,17 @@
                 ]
             },
             "B": {
-                "text": "Foe's shield side is swathed in fire. He may use a shield to avoid the attack, but it combust. Shield hand is burned.",
+                "text": "El costado del escudo del enemigo queda envuelto en llamas. Puede usar un escudo para evitar el ataque, pero éste arde. Su mano del escudo queda chamuscada.",
                 "metadata": [
                     {
-                        "DESC": "With shield",
+                        "DESC": "Con escudo",
                         "HP": 3,
                         "P": {
                             "ROUNDS": 3
                         }
                     },
                     {
-                        "DESC": "Without shield",
+                        "DESC": "Sin escudo",
                         "HP": 7,
                         "P": {
                             "ROUNDS": 1
@@ -270,55 +272,56 @@
                 ]
             },
             "C": {
-                "text": "Heat catchs foe in lower leg. You gain initiative while foe regains his balance. The pain stays with him.",
+                "text": "El calor atrapa al adversario en la pierna inferior. Ganas iniciativa mientras recupera el equilibrio. El dolor permanece con él.",
                 "metadata": [
                     {
-                        "DESC": "Default",
+                        "DESC": "Por defecto",
                         "HP": 8,
                         "P": {
                             "ROUNDS": 2
                         },
                         "HPR": 1
-                    },
-                    {
-                        "DESC": "If not wet",
-                        "HP": 9,
-                        "HPR": 2
-                    },
-                    {
-                        "DESC": "If wet",
-                        "HP": 6,
-                        "P": {
-                            "ROUNDS": 2
-                        }
                     }
                 ]
             },
             "D": {
-                "text": "Cover foe with a flash fire. Exposed skin burns. The flames bite deep and the pain is great.",
+                "text": "Cubres al enemigo con un fuego repentino. La piel expuesta arde. Las llamas muerden profundamente y el dolor es intenso.",
                 "metadata": [
                     {
-                        "DESC": "With backpack",
-                        "HP": 8,
-                        "HPR": 1
+                        "DESC": "Si está mojado",
+                        "HP": "6",
+                        "P": {
+                            "ROUNDS": 2
+                        }
                     },
                     {
-                        "DESC": "Without backpack",
-                        "HP": 10,
-                        "HPR": 3
+                        "DESC": "Si no está mojado",
+                        "HP": "9",
+                        "HPR": "2"
                     }
                 ]
             },
             "E": {
-                "text": "Strike to side and back ignite foe's cloak and pack. Neck and shoulder are lightly burned.",
-                "metadata": []
+                "text": "El golpe al costado y espalda incendia la capa y el morral del adversario. Su cuello y hombro quedan levemente quemados.",
+                "metadata": [
+                    {
+                        "DESC": "Si porta alforjas",
+                        "HP": "8",
+                        "HPR": "1"
+                    },
+                    {
+                        "DESC": "Si no porta alforjas",
+                        "HP": "10",
+                        "HPR": "3"
+                    }
+                ]
             }
         },
         {
             "lower": "46",
             "upper": "50",
             "A": {
-                "text": "Clothes smoke, then burn. Foe flails his arms trying to put them out. The pain endures longer than the flames.",
+                "text": "Las ropas humean y luego arden. El enemigo agita sus brazos intentando apagarlas. El dolor perdura más que las llamas.",
                 "metadata": [
                     {
                         "HP": 7,
@@ -330,7 +333,7 @@
                 ]
             },
             "B": {
-                "text": "Foe evades most of the damage with some grace. The remainder scorches his side lightly.",
+                "text": "El adversario evita gran parte del daño con cierta elegancia. El resto apenas chamusca su costado.",
                 "metadata": [
                     {
                         "HP": 8,
@@ -342,7 +345,7 @@
                 ]
             },
             "C": {
-                "text": "Flame spreads up foe's side and snaps at his arm and face. Exposed areas are lightly burned.",
+                "text": "La llama se extiende por el costado del enemigo y muerde su brazo y rostro. Las áreas expuestas quedan levemente quemadas.",
                 "metadata": [
                     {
                         "HP": 9,
@@ -354,7 +357,7 @@
                 ]
             },
             "D": {
-                "text": "Assault lands on foe's weapon arm. He makes a supreme effort to pull his arm away. Foe is unable to protect himself.",
+                "text": "El ataque impacta en el brazo armado del adversario. Hace un esfuerzo supremo para apartarlo, dejándose indefenso.",
                 "metadata": [
                     {
                         "HP": 10,
@@ -366,7 +369,7 @@
                 ]
             },
             "E": {
-                "text": "Foe blocks flames with his weapon. A wooden weapon is destroyed. A metal weapon becomes too hot to hold.",
+                "text": "El enemigo bloquea las llamas con su arma. Un arma de madera queda destruida. Un arma metálica se torna demasiado caliente para sostenerla.",
                 "metadata": [
                     {
                         "HP": 12,
@@ -382,7 +385,7 @@
             "lower": "51",
             "upper": "55",
             "A": {
-                "text": "Spark sets a piece of foe's equipment on fire. Foe must remove the item.",
+                "text": "Una chispa prende fuego a parte del equipo del adversario. Debe deshacerse del objeto rápidamente.",
                 "metadata": [
                     {
                         "HP": 8,
@@ -394,7 +397,7 @@
                 ]
             },
             "B": {
-                "text": "Foe ducks; attack torches back and the ground behind him. He is shaken.",
+                "text": "El enemigo se agacha; el ataque chamusca su espalda y calcina el suelo tras él. Queda estremecido.",
                 "metadata": [
                     {
                         "HP": 8,
@@ -406,7 +409,7 @@
                 ]
             },
             "C": {
-                "text": "Hard strike to side, armor does not help. Blow leaves a blistering mark.",
+                "text": "Golpe contundente al costado, ni la armadura lo protege. El impacto deja una marca rojiza y ampollada.",
                 "metadata": [
                     {
                         "HP": 9,
@@ -418,7 +421,7 @@
                 ]
             },
             "D": {
-                "text": "Foe is aflame and takes damage for 3 rounds while he burns.",
+                "text": "El adversario arde en llamas y sufre daño durante 3 rondas mientras trata desesperadamente de apagarse.",
                 "metadata": [
                     {
                         "HP": 10,
@@ -430,7 +433,7 @@
                 ]
             },
             "E": {
-                "text": "Your flames reach out. Foe frantically leaps back . His chest is burned.",
+                "text": "Tus llamas se extienden. El enemigo salta frenéticamente hacia atrás. Su pecho queda severamente quemado.",
                 "metadata": [
                     {
                         "HP": 13,
@@ -447,7 +450,7 @@
             "lower": "56",
             "upper": "60",
             "A": {
-                "text": "Assault ignites foe's back. Equipment crackles as it burns and falls clear.",
+                "text": "El ataque incendia la espalda del adversario. Su equipo crepita mientras arde y cae al suelo.",
                 "metadata": [
                     {
                         "HP": 9,
@@ -459,7 +462,7 @@
                 ]
             },
             "B": {
-                "text": "Engulf foe in flame and smoke. The flames die down; foe escapes death.",
+                "text": "Envuelves al adversario en llamas y humo denso. Las llamas disminuyen; el enemigo escapa de la muerte por poco.",
                 "metadata": [
                     {
                         "HP": 10,
@@ -471,17 +474,17 @@
                 ]
             },
             "C": {
-                "text": "Strong blast hits foe in legs; they nearly give with pain. He recoils 5 ft.",
+                "text": "Una fuerte explosión golpea las piernas del enemigo; casi ceden por el dolor. Retrocede 5 pies.",
                 "metadata": [
                     {
-                        "DESC": "With leg armor",
+                        "DESC": "Con armadura en piernas",
                         "HP": 8,
                         "P": {
                             "ROUNDS": 2
                         }
                     },
                     {
-                        "DESC": "Without leg armor",
+                        "DESC": "Sin armadura en piernas",
                         "HP": 10,
                         "STUN": {
                             "ROUNDS": 2
@@ -491,42 +494,52 @@
                 ]
             },
             "D": {
-                "text": "Flames dance around foe's head. He seeks to get clear and almost falls.",
+                "text": "Las llamas danzan alrededor de la cabeza del adversario. Intenta alejarse desesperadamente y casi cae al suelo.",
                 "metadata": [
                     {
-                        "DESC": "With helmet",
+                        "DESC": "Con yelmo",
                         "HP": 3,
                         "STUN": {
+                            "ROUNDS": 2
+                        },
+                        "PE": {
+                            "VALUE": 10,
                             "ROUNDS": 2
                         }
                     },
                     {
-                        "DESC": "Without helmet",
+                        "DESC": "Sin yelmo",
                         "HP": 12,
                         "HPR": 2
                     }
                 ]
             },
             "E": {
-                "text": "Garments over foe's shoulders and head are set afire. He is frantic.",
+                "text": "Los ropajes sobre los hombros y cabeza del enemigo se incendian. Está completamente frenético.",
                 "metadata": [
                     {
-                        "DESC": "With helm",
+                        "DESC": "Con yelmo",
                         "HP": 8,
                         "STUN": {
                             "ROUNDS": 1
                         },
                         "NP": 1,
-                        "HPR": 1
+                        "HPR": 1,
+                        "PE": {
+                            "VALUE": 5
+                        }
                     },
                     {
-                        "DESC": "Without helm",
+                        "DESC": "Sin yelmo",
                         "HP": 15,
                         "STUN": {
                             "ROUNDS": 2
                         },
-                        "NP": 1,
-                        "HPR": 3
+                        "NP": "2",
+                        "HPR": 3,
+                        "PE": {
+                            "VALUE": 10
+                        }
                     }
                 ]
             }
@@ -535,62 +548,66 @@
             "lower": "61",
             "upper": "65",
             "A": {
-                "text": "Well placed. Strike slams into foe's weapon arm. Garments are burned. Foe's evasion is comical.",
+                "text": "¡Golpe certero! El impacto alcanza el brazo armado del enemigo. Sus ropajes arden. Sus intentos de evasión resultan cómicos.",
                 "metadata": [
                     {
-                        "DESC": "With arm greaves",
+                        "DESC": "Con brazales",
                         "HP": 7,
                         "HPR": 1
                     },
                     {
-                        "DESC": "Without arm greaves",
+                        "DESC": "Sin brazales",
                         "HP": 10,
                         "HPR": 3
                     }
                 ]
             },
             "B": {
-                "text": "Concentrated strike burns through foe's leg. The flames do not last but foe's skin is exposed. Skin blisters.",
+                "text": "Un golpe concentrado atraviesa la pierna del adversario. Las llamas no perduran, pero su piel queda expuesta y ampollada.",
                 "metadata": [
                     {
                         "HP": 9,
                         "STUN": {
-                            "ROUNDS": 2
+                            "ROUNDS": 1
                         },
                         "NP": 1,
                         "HPR": 2,
-                        "DESC": "-5 penalty (approx)"
+                        "PE": {
+                            "VALUE": 5
+                        }
                     }
                 ]
             },
             "C": {
-                "text": "Flames burst against foe's side. He stumbles but does not fall. He tries to smother the fire with his garments.",
+                "text": "Las llamas estallan contra el costado del enemigo. Tambalea pero no cae. Intenta sofocar desesperadamente el fuego con sus vestimentas.",
                 "metadata": [
                     {
                         "HP": 10,
                         "STUN": {
-                            "ROUNDS": 2
+                            "ROUNDS": 1
                         },
                         "NP": 1,
                         "HPR": 3,
-                        "DESC": "-10 penalty (approx)"
+                        "PE": {
+                            "VALUE": 10
+                        }
                     }
                 ]
             },
             "D": {
-                "text": "Foe's shield arm and shield are on fire. Dropping the shield only helps a little. The flames cling to his garments.",
+                "text": "El brazo del escudo y el propio escudo del adversario arden en llamas. Soltar el escudo apenas le ayuda. El fuego se aferra a sus ropajes.",
                 "metadata": [
                     {
-                        "DESC": "With shield",
+                        "DESC": "Con escudo",
                         "HP": 10,
                         "STUN": {
                             "ROUNDS": 2
                         },
-                        "NP": 1,
+                        "NP": "1",
                         "HPR": 4
                     },
                     {
-                        "DESC": "Without shield",
+                        "DESC": "Sin escudo",
                         "HP": 13,
                         "STUN": {
                             "ROUNDS": 2
@@ -601,16 +618,19 @@
                 ]
             },
             "E": {
-                "text": "Searing strike to foe's legs. Exposed skin and muscle is burned. Infection will follow. Foe struggles to stay up.",
+                "text": "Golpe abrasador en las piernas del enemigo. Piel y músculo quedan gravemente quemados. La infección es inevitable. El adversario lucha por mantenerse en pie.",
                 "metadata": [
                     {
                         "HP": 15,
                         "STUN": {
                             "ROUNDS": 2
                         },
-                        "NP": 1,
+                        "NP": "2",
                         "HPR": 4,
-                        "DESC": "Approx -10 penalty"
+                        "PE": {
+                            "VALUE": 10,
+                            "ROUNDS": 1
+                        }
                     }
                 ]
             }
@@ -619,20 +639,23 @@
             "lower": "66",
             "upper": "66",
             "A": {
-                "text": "Flame grapples foe's shield and chest. The wound is grave and infection will follow.",
+                "text": "La llama envuelve el escudo y pecho del adversario. La herida es grave y la infección será inevitable.",
                 "metadata": [
                     {
                         "HP": 9,
                         "STUN": {
                             "ROUNDS": 2
                         },
-                        "NP": 1,
-                        "DESC": "-15 penalty (approx)"
+                        "NP": "2",
+                        "PE": {
+                            "VALUE": 15,
+                            "ROUNDS": 1
+                        }
                     }
                 ]
             },
             "B": {
-                "text": "Fire lands along side foe's face. His hair, cheek, and ear are engulfed. Foe throws himself to the ground.",
+                "text": "El fuego cae junto al rostro del enemigo. Su cabello, mejilla y oreja quedan envueltos en llamas. Se arroja desesperado al suelo.",
                 "metadata": [
                     {
                         "HP": 10,
@@ -644,7 +667,7 @@
                 ]
             },
             "C": {
-                "text": "Blaze consumes garments on weapon arm. Any metal covering heats up. Foe falls from the blast.",
+                "text": "Las llamas consumen los ropajes del brazo armado. El metal se calienta al rojo vivo. El adversario cae derribado por la explosión.",
                 "metadata": [
                     {
                         "HP": 12,
@@ -653,19 +676,21 @@
                 ]
             },
             "D": {
-                "text": "Foe's face and weapon hand are scalded. Foe is having trouble opening his eyes.",
+                "text": "El rostro y la mano armada del enemigo quedan escaldados. Tiene graves problemas para abrir los ojos chamuscados.",
                 "metadata": [
                     {
                         "STUN": {
                             "ROUNDS": 10
                         },
-                        "DESC": "-10 penalty (approx)",
-                        "HPR": 6
+                        "HPR": "6",
+                        "PE": {
+                            "VALUE": 10
+                        }
                     }
                 ]
             },
             "E": {
-                "text": "Foe's combustible garments turn him into a torch. He runs a short distance, drops and dies in 6 rounds.",
+                "text": "Las ropas combustibles del adversario lo convierten en una antorcha viviente. Corre una corta distancia, cae y muere en 6 rondas de agonía.",
                 "metadata": [
                     {
                         "HP": 25
@@ -677,7 +702,7 @@
             "lower": "67",
             "upper": "70",
             "A": {
-                "text": "Toast foe's side and send him stumbling back 5 feet away from you. He blocks his face against any renewed assault.",
+                "text": "Tuestas el costado del enemigo y lo haces tambalearse 5 pies lejos de ti. Protege su rostro ante la posibilidad de un nuevo ataque.",
                 "metadata": [
                     {
                         "HP": 8,
@@ -685,12 +710,14 @@
                             "ROUNDS": 2
                         },
                         "HPR": 2,
-                        "DESC": "-5 penalty (approx)"
+                        "PE": {
+                            "VALUE": 5
+                        }
                     }
                 ]
             },
             "B": {
-                "text": "Flames seek out foe with a predator's lust. He throws garments and equipment off franticly to satisfy the blaze. Foe is busy staying alive.",
+                "text": "Las llamas persiguen al enemigo con ansia depredadora. Se despoja frenéticamente de ropas y equipo para saciar al fuego hambriento. Está completamente ocupado intentando sobrevivir.",
                 "metadata": [
                     {
                         "HP": 7,
@@ -699,12 +726,14 @@
                         },
                         "NP": 1,
                         "HPR": 2,
-                        "DESC": "-10 penalty (approx)"
+                        "PE": {
+                            "VALUE": 10
+                        }
                     }
                 ]
             },
             "C": {
-                "text": "Back blast. Foe drops to one knee and then rises again with some difficulty. Some of his garments still smoke. Skin is blistered badly.",
+                "text": "Explosión trasera. El adversario cae sobre una rodilla y luego se levanta con gran dificultad. Sus ropajes aún humean. La piel está gravemente ampollada.",
                 "metadata": [
                     {
                         "STUN": {
@@ -712,12 +741,14 @@
                         },
                         "NP": 1,
                         "HPR": 2,
-                        "DESC": "-15 penalty (approx)"
+                        "PE": {
+                            "VALUE": 15
+                        }
                     }
                 ]
             },
             "D": {
-                "text": "Foe leaps back from your deadly inferno. He escapes death but falls on his back. He is prone for 1 round. Minor arm burns.",
+                "text": "El enemigo salta hacia atrás huyendo de tu infernal ataque. Escapa de la muerte pero cae de espaldas. Queda tendido por 1 ronda. Sufre quemaduras menores en el brazo.",
                 "metadata": [
                     {
                         "HP": 15,
@@ -729,11 +760,13 @@
                 ]
             },
             "E": {
-                "text": "Blast leaps onto foe's shield arm. Any shield foe has and his arm are on fire. The heat penetrates deep and foe's face shows it.",
+                "text": "La explosión alcanza el brazo del escudo del adversario. Tanto el escudo como su brazo arden en llamas. El calor penetra hasta el hueso y su rostro refleja la agonía.",
                 "metadata": [
                     {
                         "HPR": 5,
-                        "DESC": "-15 penalty (approx)"
+                        "PE": {
+                            "VALUE": 15
+                        }
                     }
                 ]
             }
@@ -742,7 +775,7 @@
             "lower": "71",
             "upper": "75",
             "A": {
-                "text": "Fire consumes garments and hair. Blinding smoke keeps foe's defenses poorly aligned.",
+                "text": "El fuego devora ropajes y cabello. El humo cegador deja las defensas del enemigo totalmente desalineadas.",
                 "metadata": [
                     {
                         "HP": 12,
@@ -754,7 +787,7 @@
                 ]
             },
             "B": {
-                "text": "Chest and arm blast damages organic armor and engulfs any wood on foe. Metal armor heats up painfully.",
+                "text": "La explosión en pecho y brazo daña gravemente la armadura orgánica y consume cualquier madera que porte el adversario. La armadura metálica se calienta dolorosamente.\n\n(-15)-(+10)",
                 "metadata": [
                     {
                         "HP": 9,
@@ -762,40 +795,51 @@
                             "ROUNDS": 2
                         },
                         "NP": 1,
-                        "DESC": "-15 penalty, +10 bonus next (?) - interpret"
+                        "PE": {
+                            "VALUE": 15
+                        },
+                        "BONUS": {
+                            "VALUE": 10
+                        }
                     }
                 ]
             },
             "C": {
-                "text": "Chest blast. Organic armor is destroyed. Metal armor should be removed quickly.",
+                "text": "Explosión devastadora en el pecho. La armadura orgánica queda completamente destruida. La armadura metálica debe quitarse urgentemente para evitar quemaduras graves.",
                 "metadata": [
                     {
                         "STUN": {
                             "ROUNDS": 3
                         },
                         "HPR": 6,
-                        "DESC": "Approx -15 penalty"
+                        "PE": {
+                            "VALUE": 15
+                        }
                     }
                 ]
             },
             "D": {
-                "text": "Foe's weapon arm is a conflagration. Hand and arm are useless. Muscles and nerves are damaged.",
+                "text": "El brazo armado del enemigo se convierte en una conflagración ardiente. Mano y brazo quedan inútiles, con músculos y nervios severamente dañados.",
                 "metadata": [
                     {
                         "STUN": {
                             "ROUNDS": 6
                         },
-                        "DESC": "Approx -50 penalty"
+                        "PE": {
+                            "VALUE": 50
+                        }
                     }
                 ]
             },
             "E": {
-                "text": "Strike center of foe's chest. Flame spills in all directions. Foe is knocked down. Chest armor is destroyed.",
+                "text": "Golpeas el centro del pecho del adversario. Las llamas se derraman en todas direcciones. El enemigo cae derribado. Su armadura pectoral queda completamente destruida.",
                 "metadata": [
                     {
                         "HP": 15,
                         "HPR": 6,
-                        "DESC": "Approx -60 penalty"
+                        "PE": {
+                            "VALUE": 60
+                        }
                     }
                 ]
             }
@@ -804,7 +848,7 @@
             "lower": "76",
             "upper": "80",
             "A": {
-                "text": "Foe's shield side engulfed in flame. Foe's shield is kindled if wooden.",
+                "text": "El costado del escudo del adversario queda envuelto en llamas voraces. Si el escudo es de madera, arde como yesca seca.",
                 "metadata": [
                     {
                         "HP": 10,
@@ -817,7 +861,7 @@
                 ]
             },
             "B": {
-                "text": "Abdomen entangled in flames. The flames will spread upward next turn if not extinguished. Foe sees the danger.",
+                "text": "El abdomen del enemigo queda atrapado en llamas hambrientas. El fuego se extenderá hacia arriba en el siguiente turno si no logra extinguirlo. El adversario ve el peligro inminente.",
                 "metadata": [
                     {
                         "HP": 20,
@@ -826,30 +870,32 @@
                 ]
             },
             "C": {
-                "text": "Strike engulfs foe's most exposed hand and burns it without mercy. Hand is useless. Arm clothing is destroyed.",
+                "text": "Tu golpe envuelve la mano más expuesta del adversario y la quema sin misericordia. La mano queda completamente inútil. La ropa del brazo es consumida por las llamas.",
                 "metadata": [
                     {
                         "STUN": {
                             "ROUNDS": 6
                         },
-                        "DESC": "Approx -40 penalty"
+                        "PE": {
+                            "VALUE": 40
+                        }
                     }
                 ]
             },
             "D": {
-                "text": "Foe's side is ignited by your strike and the wounds are deep. He smothers the fire but the damage is done.",
+                "text": "El costado del enemigo es incendiado por tu golpe magistral y las heridas son profundas. Logra sofocar el fuego, pero el daño ya está hecho.",
                 "metadata": [
                     {
                         "STUN": {
                             "ROUNDS": 3
                         },
-                        "NP": 1,
-                        "HPR": 5
+                        "NP": "3",
+                        "HPR": "3"
                     }
                 ]
             },
             "E": {
-                "text": "Blast lands on foe's side but spreads to arms and legs. A shield prevents arm damage but his hands are burned off.",
+                "text": "La explosión impacta en el costado del adversario pero se extiende rápidamente a brazos y piernas. Un escudo previene el daño al brazo, pero sus manos quedan carbonizadas.",
                 "metadata": [
                     {
                         "HP": 20,
@@ -864,7 +910,7 @@
             "lower": "81",
             "upper": "85",
             "A": {
-                "text": "Foe exposes his back while evading the strike. Blast scorches a small wound in his shoulder blade.",
+                "text": "El adversario expone su espalda al evadir el golpe. La explosión chamusca una herida profunda en su omóplato.",
                 "metadata": [
                     {
                         "HP": 8,
@@ -872,60 +918,71 @@
                             "ROUNDS": 2
                         },
                         "HPR": 2,
-                        "DESC": "-20 penalty"
+                        "PE": {
+                            "VALUE": 20
+                        }
                     }
                 ]
             },
             "B": {
-                "text": "Strike knocks foe down on his back. The flames do not endure but much equipment is burned or crushed.",
+                "text": "El impacto derriba al enemigo de espaldas. Las llamas no perduran, pero gran parte de su equipo queda calcinado o destrozado.",
                 "metadata": [
                     {
                         "STUN": {
                             "ROUNDS": 1
                         },
-                        "HPR": 2,
-                        "DESC": "Approx -20 penalty"
+                        "HPR": 2
                     }
                 ]
             },
             "C": {
-                "text": "Violent inferno destroys organic armor and ruins metal armor on leg. Much of the blast tumbles clear after impact.",
+                "text": "Un violento infierno destruye la armadura orgánica y arruina la armadura metálica de la pierna. Gran parte de la explosión se disipa tras el devastador impacto.",
                 "metadata": [
                     {
-                        "HP": 15,
+                        "HPR": "2",
+                        "PE": {
+                            "VALUE": 20
+                        }
+                    }
+                ]
+            },
+            "D": {
+                "text": "Los brazos y pecho del adversario reciben toda la furia de tu golpe infernal. Los brazos quedan inútiles y su piel expuesta al aire, dejando la carne viva.",
+                "metadata": [
+                    {
+                        "HP": "15",
                         "STUN": {
                             "ROUNDS": 9
                         }
                     }
                 ]
             },
-            "D": {
-                "text": "Foe's arms and chest embrace your infernal strike. Arms are useless and foe's skin is open to the air.",
+            "E": {
+                "text": "El enemigo inhala llamas que escaldan sus pulmones y garganta. Permanece activo agonizando durante 12 rondas mientras arde por dentro, antes de morir.",
                 "metadata": [
                     {
-                        "HP": 20
+                        "HP": "20"
                     }
                 ]
-            },
-            "E": {
-                "text": "Foe inhales flames scalding lungs and throat. Foe is active for 12 rnds (while he burns), then dies.",
-                "metadata": []
             }
         },
         {
             "lower": "86",
             "upper": "90",
             "A": {
-                "text": "Assault to foe's lower leg consumes covering. Foe falls down. One leg is on fire.",
+                "text": "Tu ataque a la pierna inferior del adversario consume toda su protección. Cae al suelo mientras una pierna se convierte en una antorcha viva.",
                 "metadata": [
                     {
                         "HP": 10,
-                        "DESC": "Possible -10 penalty"
+                        "PE": {
+                            "VALUE": 10,
+                            "ROUNDS": 2
+                        }
                     }
                 ]
             },
             "B": {
-                "text": "Leg covering is set on fire by blast. It spreads quickly and foe is in trouble. The flames will grow if not put out.",
+                "text": "La protección de la pierna es incendiada por la explosión. El fuego se extiende rápidamente y el enemigo está en grave peligro. Las llamas crecerán si no logra apagarlas.",
                 "metadata": [
                     {
                         "HP": 16,
@@ -936,69 +993,73 @@
                 ]
             },
             "C": {
-                "text": "Foe's shield side is devoured by flames. Head, arm, side, and leg have critical burns. If foe has a shield, it is destroyed instead of his arm.",
+                "text": "El lado del escudo del enemigo es devorado por llamas voraces. Cabeza, brazo, costado y pierna sufren quemaduras críticas. Si tiene escudo, éste es destruido en lugar de su brazo.",
                 "metadata": [
                     {
                         "HP": 15,
                         "STUN": {
                             "ROUNDS": 6
                         },
-                        "NP": 1,
-                        "DESC": "-85 penalty (approx)",
-                        "HPR": 3
-                    }
-                ]
-            },
-            "D": {
-                "text": "Blast engulfs lower half of foe's body. If foe has abdominal armor, he is knocked out. If not, he dies in 12 inactive rounds from organ damage.",
-                "metadata": [
-                    {
-                        "DESC": "With abdominal armor",
-                        "HPR": 2
-                    },
-                    {
-                        "DESC": "Without abdominal armor",
-                        "HP": 20,
-                        "STUN": {
-                            "ROUNDS": 12
+                        "NP": "6",
+                        "HPR": 3,
+                        "PE": {
+                            "VALUE": 85
                         }
                     }
                 ]
             },
+            "D": {
+                "text": "La explosión envuelve la mitad inferior del cuerpo del adversario en un infierno. Si tiene armadura abdominal, queda inconsciente. Si no, muere tras 12 rondas de agonía por daño interno.",
+                "metadata": [
+                    {
+                        "DESC": "Con armadura abdominal",
+                        "HPR": 2
+                    }
+                ]
+            },
             "E": {
-                "text": "Foe's lower body is badly burned. Nerves, organs and tissue destroyed. Foe is paralyzed and will die in 9 rounds from shock and dehydration.",
-                "metadata": []
+                "text": "La parte inferior del cuerpo del enemigo queda gravemente carbonizada. Nervios, órganos y tejidos destruidos. Queda paralizado y morirá en 9 rondas por shock y deshidratación severa.",
+                "metadata": [
+                    {
+                        "HP": "20"
+                    }
+                ]
             }
         },
         {
             "lower": "91",
             "upper": "95",
             "A": {
-                "text": "Blow to foe's head. If he has helmet it heats up like a furnace and must be painfully removed. Foe ears and cheeks are burned.",
+                "text": "Golpe devastador a la cabeza del adversario. Si porta yelmo, éste se calienta como un horno ardiente y debe quitárselo con gran dolor. Sus orejas y mejillas quedan severamente quemadas.",
                 "metadata": [
                     {
-                        "DESC": "With helmet",
+                        "DESC": "Con yelmo",
                         "HP": 15,
                         "STUN": {
                             "ROUNDS": 3
+                        },
+                        "PE": {
+                            "VALUE": 10
                         }
                     },
                     {
-                        "DESC": "No helmet",
+                        "DESC": "Sin yelmo",
                         "HP": 12,
                         "STUN": {
                             "ROUNDS": 2
                         },
-                        "NP": 1,
-                        "DESC_2": "-30 penalty (approx)"
+                        "NP": "2",
+                        "PE": {
+                            "VALUE": 30
+                        }
                     }
                 ]
             },
             "B": {
-                "text": "Head strike. Force of blast removes any helmet worn. Hair, scalp and skin burn. Smoke and flame blind foe for 3 rnds.",
+                "text": "Impacto en la cabeza. La fuerza de la explosión arranca cualquier yelmo. Cabello, cuero cabelludo y piel arden con furia. Humo y llamas ciegan al enemigo por 3 rondas.",
                 "metadata": [
                     {
-                        "DESC": "With helmet",
+                        "DESC": "Con yelmo",
                         "HP": 10,
                         "P": {
                             "ROUNDS": 3
@@ -1006,83 +1067,97 @@
                         "HPR": 2
                     },
                     {
-                        "DESC": "No helmet",
-                        "HP": 18,
-                        "STUN": {
-                            "ROUNDS": 6
-                        },
-                        "NP": 1,
-                        "HPR": 4
+                        "DESC": "Sin yelmo",
+                        "HPR": "8"
                     }
                 ]
             },
             "C": {
-                "text": "Trapped in the furnace of your blast, foe is overcome and falls down. He is unconscious and still burning.",
+                "text": "Atrapado en el horno infernal de tu explosión, el enemigo sucumbe y cae derrotado. Queda inconsciente mientras continúa ardiendo.",
                 "metadata": [
                     {
-                        "HP": 20,
+                        "HP": "18",
                         "STUN": {
-                            "ROUNDS": 12
+                            "ROUNDS": 6
+                        },
+                        "NP": "6",
+                        "HPR": "4",
+                        "PE": {
+                            "VALUE": 90
                         }
                     }
                 ]
             },
             "D": {
-                "text": "Flames assault upper body. If foe has a full helm, he is blinded and in a coma for 2 days. If not, he dies in 6 rounds due to shock and brain damage.",
+                "text": "Las llamas asaltan despiadadamente la parte superior del cuerpo. Si porta yelmo completo, queda cegado y cae en coma por 2 días. Si no, muere en 6 rondas por shock y daño cerebral severo.",
                 "metadata": []
             },
             "E": {
-                "text": "Foe is cremated before your very eyes. He remains standing for 6 rounds and then drops and dies. A small fire lingers. A horrible end.",
-                "metadata": []
+                "text": "El adversario es incinerado ante tus propios ojos. Permanece en pie durante 6 rondas, consumiéndose, antes de caer y morir. Un pequeño fuego persiste entre sus restos. Un final verdaderamente horrible.",
+                "metadata": [
+                    {
+                        "HP": "25"
+                    }
+                ]
             }
         },
         {
             "lower": "96",
             "upper": "99",
             "A": {
-                "text": "Blast lands on the weapon arm and climbs up to foe's neck. It burns all it touches. If foe has any organic neck covering it is destroyed.",
+                "text": "Tu ataque impacta en el brazo armado y trepa como una serpiente de fuego hasta el cuello del enemigo. Quema todo lo que toca. Cualquier protección orgánica en el cuello es destruida.",
                 "metadata": [
                     {
                         "STUN": {
                             "ROUNDS": 4
                         },
-                        "NP": 1,
+                        "NP": "4",
                         "HPR": 8
                     }
                 ]
             },
             "B": {
-                "text": "Flames burn into foe's throat. The damage is frightening. Foe's neck collapses in the flames. He drops and dies in 9 inactive rnds. He smells bad.",
+                "text": "Las llamas penetran en la garganta del adversario. El daño es aterrador. Su cuello colapsa entre las llamas devoradoras. Cae y muere en 9 rondas de agonía. El hedor es insoportable.",
                 "metadata": [
                     {
                         "HP": 20,
                         "HPR": 12,
-                        "DESC": "+10 next round (maybe?)"
+                        "BONUS": {
+                            "VALUE": 10
+                        }
                     }
                 ]
             },
             "C": {
-                "text": "Intense heat fuses metal, cloth and skin. Foe is unrecognizable. If no chest armor he is dead instantly. Otherwise he dies after 9 rounds of burning.",
+                "text": "El calor intenso funde metal, tela y piel en una masa irreconocible. El enemigo es irreconocible. Sin armadura en el pecho muere al instante. Con ella, sufre 9 rondas de agonía ardiente.",
+                "metadata": []
+            },
+            "D": {
+                "text": "El adversario queda atrapado en el horno infernal creado por tu ataque. Sus órganos internos son destruidos y su sangre hierve en sus venas. No tiene esperanza de supervivencia y muere tras 6 rondas.",
                 "metadata": [
                     {
-                        "HP": 20
+                        "HP": "25"
                     }
                 ]
             },
-            "D": {
-                "text": "Foe is trapped in the furnace made by your attack. Organs are destroyed and foe's blood boils. He has no hope of survival and dies in 6 inactive rounds.",
-                "metadata": []
-            },
             "E": {
-                "text": "Your foe is devoured by a hellfire of which even you are frightened. All combustibles within 10 ft ignite. Little will remain when the fire dies.",
-                "metadata": []
+                "text": "Tu enemigo es devorado por un fuego infernal cuya intensidad incluso a ti te aterra. Todo material combustible en un radio de 10 pies se incendia instantáneamente. Poco quedará cuando las llamas se extingan.",
+                "metadata": [
+                    {
+                        "BONUS": {
+                            "0": "2",
+                            "1": "5",
+                            "VALUE": 10
+                        }
+                    }
+                ]
             }
         },
         {
             "lower": "100",
             "upper": "100",
             "A": {
-                "text": "Brutally scar the side of foe's face. Foe is knocked out. He loses 50 from his Appearance and 25 from his Presence.",
+                "text": "Las llamas cicatrizan brutalmente el rostro del adversario. Queda inconsciente y desfigurado. Pierde 50 puntos de su Apariencia y 25 de su Presencia.",
                 "metadata": [
                     {
                         "HP": 20,
@@ -1091,7 +1166,7 @@
                 ]
             },
             "B": {
-                "text": "Assault consumes clothing and tissue. Foe's arms and chest are without skin. Foe is paralyzed. Infection will follow.",
+                "text": "Tu asalto consume ropas y tejido vital. Los brazos y pecho del enemigo quedan sin piel, expuestos al aire. Queda paralizado por el dolor. La infección será inevitable.",
                 "metadata": [
                     {
                         "HP": 25
@@ -1099,16 +1174,34 @@
                 ]
             },
             "C": {
-                "text": "Strike to foe's head. If he has a helmet, his head is broiled and he dies in 2 rnds. If no helmet he dies instantly.",
-                "metadata": []
+                "text": "Golpe devastador a la cabeza del adversario. Si porta yelmo, su cabeza se cocina lentamente y muere en 2 rondas de agonía. Sin yelmo, muere instantáneamente carbonizado.",
+                "metadata": [
+                    {
+                        "BONUS": {
+                            "VALUE": 10
+                        }
+                    }
+                ]
             },
             "D": {
-                "text": "Every part of foe is ablaze. He dies in 2 rounds, making terrifying noises. He continues to burn for 12 rounds.",
-                "metadata": []
+                "text": "Cada parte del cuerpo del enemigo arde con furia incontrolable. Muere en 2 rondas, emitiendo sonidos aterradores que helarían la sangre. Su cuerpo continúa ardiendo durante 12 rondas más.",
+                "metadata": [
+                    {
+                        "BONUS": {
+                            "VALUE": 15
+                        }
+                    }
+                ]
             },
             "E": {
-                "text": "Fire devours every part of foe in an instant. Bits of metal, teeth and bones shower to the ground.",
-                "metadata": []
+                "text": "El fuego devora cada parte del adversario en un instante apocalíptico. Fragmentos de metal fundido, dientes carbonizados y huesos calcinados llueven sobre el suelo a tu alrededor.",
+                "metadata": [
+                    {
+                        "BONUS": {
+                            "VALUE": 20
+                        }
+                    }
+                ]
             }
         }
     ]
