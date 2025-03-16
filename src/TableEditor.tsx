@@ -42,7 +42,13 @@ const CellJson = styled.pre`
 
 const TableEditor: React.FC<{ table: CritTable; onSave: (updatedTable: CritTable) => void; }> = ({ table, onSave }) => {
   const [rows, setRows] = useState<CritRow[]>(table.rows);
-  const [selectedCell, setSelectedCell] = useState<{ rowIndex: number; column: CritColumn; data: CritCell | undefined } | null>(null);
+  const [selectedCell, setSelectedCell] = useState<{
+    rowIndex: number;
+    column: CritColumn;
+    data: CritCell | undefined;
+    lower?: number;
+    upper?: number;
+  } | null>(null);
 
   // Añadir useEffect para actualizar las filas cuando cambie la tabla
   useEffect(() => {
@@ -156,7 +162,15 @@ const TableEditor: React.FC<{ table: CritTable; onSave: (updatedTable: CritTable
   });
 
   const handleCellClick = (rowIndex: number, column: CritColumn) => {
-    setSelectedCell({ rowIndex, column, data: rows[rowIndex][column] || { text: '', metadata: [] } });
+    if (column === 'lower' || column === 'upper') return;
+
+    setSelectedCell({
+      rowIndex,
+      column,
+      data: rows[rowIndex][column] || { text: '', metadata: [] },
+      lower: rows[rowIndex].lower,
+      upper: rows[rowIndex].upper
+    });
   };
 
   const handleSave = () => {
@@ -193,7 +207,7 @@ const TableEditor: React.FC<{ table: CritTable; onSave: (updatedTable: CritTable
       {
         selectedCell && (
           <EditModal
-            cellData={{ ...selectedCell, data: selectedCell.data || { text: '', metadata: [] } }}
+            cellData={selectedCell}
             onSave={handleSaveCritCell}
             onClose={() => setSelectedCell(null)}
           />

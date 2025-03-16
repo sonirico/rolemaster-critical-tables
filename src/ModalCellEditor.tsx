@@ -2,7 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { CritColumn, CritCell, EffectGroup, isEffectComplex, EffectComplex, effectNames } from './types';
 
 interface EditModalProps {
-    cellData: { rowIndex: number; column: CritColumn; data: CritCell };
+    cellData: {
+        rowIndex: number;
+        column: CritColumn;
+        data: CritCell;
+        lower?: number;
+        upper?: number;
+    };
     onSave: (rowIndex: number, column: CritColumn, updatedData: CritCell) => void;
     onClose: () => void;
 }
@@ -10,6 +16,9 @@ interface EditModalProps {
 const EditModal: React.FC<EditModalProps> = ({ cellData, onSave, onClose }) => {
     const [text, setText] = useState(cellData.data.text || '');
     const [effectGroups, setEffectGroups] = useState<EffectGroup[]>([]);
+
+    // Construct title with range and column information
+    const modalTitle = `Editar Celda - Columna ${cellData.column} (Rango: ${cellData.lower || '?'}-${cellData.upper || '?'})`;
 
     useEffect(() => {
         setEffectGroups(cellData.data.metadata || []);
@@ -111,7 +120,7 @@ const EditModal: React.FC<EditModalProps> = ({ cellData, onSave, onClose }) => {
     return (
         <div style={modalStyles.overlay}>
             <div style={modalStyles.modal}>
-                <h3>Editar Celda</h3>
+                <h3>{modalTitle}</h3>
                 <textarea style={styles.textarea} value={text} onChange={(e) => setText(e.target.value)} />
                 <h4>Grupos de Efectos</h4>
                 <div style={styles.effectGroupsContainer}>
