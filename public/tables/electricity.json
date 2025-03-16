@@ -291,7 +291,8 @@
                             "ROUNDS": 1
                         },
                         "PE": {
-                            "VALUE": 20
+                            "VALUE": 10,
+                            "ROUNDS": 2
                         }
                     }
                 ]
@@ -354,7 +355,8 @@
                             "ROUNDS": 2
                         },
                         "PE": {
-                            "VALUE": 20
+                            "VALUE": 10,
+                            "ROUNDS": 2
                         }
                     }
                 ]
@@ -655,16 +657,19 @@
                 "metadata": [
                     {
                         "HP": 20,
-                        "HPR": 4,
-                        "BONUS": {
-                            "VALUE": 10
-                        }
+                        "HPR": 4
                     }
                 ]
             },
             "E": {
                 "text": "El esqueleto del enemigo cruje con la fuerza de tu ataque. Cae y muere en 2 asaltos.",
-                "metadata": []
+                "metadata": [
+                    {
+                        "BONUS": {
+                            "VALUE": 10
+                        }
+                    }
+                ]
             }
         },
         {
@@ -764,10 +769,16 @@
                         "STUN": {
                             "ROUNDS": 4
                         },
-                        "HPR": 2,
-                        "PE": {
-                            "VALUE": 15
-                        }
+                        "DESC": "Con armadura metátlica",
+                        "NP": "2",
+                        "HPR": "3"
+                    },
+                    {
+                        "DESC": "Sin armadura metálica",
+                        "STUN": {
+                            "ROUNDS": 4
+                        },
+                        "NP": "2"
                     }
                 ]
             },
@@ -777,9 +788,17 @@
                     {
                         "HP": 12,
                         "STUN": {
-                            "ROUNDS": 3
+                            "ROUNDS": 8
                         },
-                        "HPR": 2
+                        "HPR": "5",
+                        "DESC": "Si no se despoja de la armadura"
+                    },
+                    {
+                        "DESC": "Si se despoja de la armadura",
+                        "HP": "12",
+                        "STUN": {
+                            "ROUNDS": 8
+                        }
                     }
                 ]
             },
@@ -798,10 +817,20 @@
                 "text": "El rayo sacude el centro del pecho del rival. Sus convulsiones parecen una macabra danza; uno de sus brazos se paraliza.",
                 "metadata": [
                     {
-                        "HP": 15,
+                        "HP": "10",
                         "STUN": {
                             "ROUNDS": 3
-                        }
+                        },
+                        "DESC": "Con armadura",
+                        "NP": "3",
+                        "HPR": "1"
+                    },
+                    {
+                        "DESC": "Sin armadura en el pecho",
+                        "STUN": {
+                            "ROUNDS": 6
+                        },
+                        "HPR": "3"
                     }
                 ]
             }
@@ -813,12 +842,20 @@
                 "text": "Descarga electrificante en el lado del escudo. Poco sirve para protegerle si es de metal; arde igual.",
                 "metadata": [
                     {
-                        "HP": 10,
+                        "HP": "6",
+                        "STUN": {
+                            "ROUNDS": 1
+                        },
+                        "NP": 1,
+                        "DESC": "Sin metal en el escudo"
+                    },
+                    {
+                        "DESC": "Con metal en el escudo",
+                        "HP": "9",
                         "STUN": {
                             "ROUNDS": 2
                         },
-                        "NP": 1,
-                        "HPR": 2
+                        "NP": "2"
                     }
                 ]
             },
@@ -826,10 +863,17 @@
                 "text": "Un “serpiente” de energía atrapa el abdomen del rival. Cae al suelo y la descarga desaparece.",
                 "metadata": [
                     {
-                        "HP": 15,
+                        "DESC": "Con armadura en el abdomen",
+                        "HP": "15",
                         "STUN": {
                             "ROUNDS": 2
-                        }
+                        },
+                        "NP": "1"
+                    },
+                    {
+                        "DESC": "Sin armadura en el abdomen",
+                        "HP": "11",
+                        "HPR": "2"
                     }
                 ]
             },
@@ -842,7 +886,8 @@
                         },
                         "PE": {
                             "VALUE": 5
-                        }
+                        },
+                        "HPR": "1"
                     }
                 ]
             },
@@ -853,7 +898,8 @@
                         "HP": 20,
                         "STUN": {
                             "ROUNDS": 10
-                        }
+                        },
+                        "NP": "10"
                     }
                 ]
             },
@@ -879,7 +925,7 @@
                             "ROUNDS": 2
                         },
                         "P": {
-                            "ROUNDS": 1
+                            "ROUNDS": 2
                         }
                     }
                 ]
@@ -891,7 +937,8 @@
                         "HP": 13,
                         "STUN": {
                             "ROUNDS": 3
-                        }
+                        },
+                        "NP": "3"
                     }
                 ]
             },
@@ -905,7 +952,18 @@
                         },
                         "PE": {
                             "VALUE": 20
-                        }
+                        },
+                        "DESC": "Con armadura"
+                    },
+                    {
+                        "DESC": "Sin armadura",
+                        "STUN": {
+                            "ROUNDS": 4
+                        },
+                        "PE": {
+                            "VALUE": 40
+                        },
+                        "HPR": "2"
                     }
                 ]
             },
@@ -913,7 +971,11 @@
                 "text": "La descarga viaja por el brazo armado y alcanza órganos internos. Tras 6 asaltos activos, colapsa inconsciente.",
                 "metadata": [
                     {
-                        "HP": 15
+                        "HP": 15,
+                        "PE": {
+                            "VALUE": 30,
+                            "ROUNDS": 6
+                        }
                     }
                 ]
             },
@@ -932,16 +994,38 @@
                         "HP": 15,
                         "STUN": {
                             "ROUNDS": 2
-                        }
+                        },
+                        "DESC": "Con armadura metálica",
+                        "NP": "2"
+                    },
+                    {
+                        "DESC": "Sin armadura metálica",
+                        "HP": "15",
+                        "STUN": {
+                            "ROUNDS": 3
+                        },
+                        "NP": "3"
                     }
                 ]
             },
             "B": {
-                "text": "La descarga impacta la pierna con fuerza anormal. Si tiene armadura, sufre fractura simple; sin ella, fractura expuesta.",
+                "text": "La descarga impacta la pierna con fuerza anormal. Si tiene armadura, sufre fractura simple; sin ella, fractura múltiple expuesta.",
                 "metadata": [
                     {
+                        "DESC": "Con armadura en la pierna",
                         "STUN": {
-                            "ROUNDS": 4
+                            "ROUNDS": 6
+                        },
+                        "NP": "6",
+                        "HPR": "1"
+                    },
+                    {
+                        "DESC": "Sin armadura en la pierna",
+                        "STUN": {
+                            "ROUNDS": 6
+                        },
+                        "PE": {
+                            "VALUE": 50
                         }
                     }
                 ]
@@ -950,16 +1034,27 @@
                 "text": "La mayor parte del impacto se concentra en la rodilla. Músculos y nervios arden. Cae presa del dolor, sujetando su rodilla.",
                 "metadata": [
                     {
-                        "HP": 12,
                         "STUN": {
-                            "ROUNDS": 3
+                            "ROUNDS": 2
+                        },
+                        "NP": "2",
+                        "PE": {
+                            "ROUNDS": 60
                         }
                     }
                 ]
             },
             "D": {
                 "text": "El relámpago recorre todo su cuerpo. Si no lleva armadura, morirá en 12 asaltos por convulsiones masivas.",
-                "metadata": []
+                "metadata": [
+                    {
+                        "DESC": "Con armadura",
+                        "STUN": {
+                            "ROUNDS": 9
+                        },
+                        "HPR": "6"
+                    }
+                ]
             },
             "E": {
                 "text": "La descarga trepa desde el hombro hasta la columna. El enemigo cae con la cadera y la espalda destrozadas, muriendo en 12 asaltos.",
@@ -987,7 +1082,7 @@
                 "metadata": [
                     {
                         "STUN": {
-                            "ROUNDS": 5
+                            "ROUNDS": 9
                         }
                     }
                 ]
@@ -996,17 +1091,28 @@
                 "text": "Atrapado en una telaraña de relámpagos, el enemigo cae inconsciente. Sin ayuda inmediata, morirá en 12 asaltos por shock.",
                 "metadata": [
                     {
-                        "HP": 25
+                        "PE": {
+                            "VALUE": 75
+                        },
+                        "HPR": "5"
                     }
                 ]
             },
             "D": {
                 "text": "Un impacto en la cabeza devasta el sistema nervioso. El oponente cae en coma, convertido en un vegetal viviente.",
-                "metadata": []
+                "metadata": [
+                    {
+                        "HP": "30"
+                    }
+                ]
             },
             "E": {
                 "text": "La descarga desgarra órganos vitales. Los ojos del rival saltan de sus órbitas y muere tras 9 asaltos inactivo.",
-                "metadata": []
+                "metadata": [
+                    {
+                        "HP": "25"
+                    }
+                ]
             }
         },
         {
@@ -1033,19 +1139,25 @@
             },
             "C": {
                 "text": "El calor sostenido funde metal, tela y piel. Los ojos del rival saltan de su cabeza y perece en 3 asaltos.",
-                "metadata": [
-                    {
-                        "HP": 20
-                    }
-                ]
+                "metadata": []
             },
             "D": {
                 "text": "El enemigo retrocede 10 pies. El daño nervioso y la fractura de cadera y brazo le causan la muerte en 3 asaltos de agonía.",
-                "metadata": []
+                "metadata": [
+                    {
+                        "HP": "20"
+                    }
+                ]
             },
             "E": {
                 "text": "Un estallido titánico parte virtualmente en dos al enemigo, mientras relámpagos corren por el suelo. Está muerto al instante.",
-                "metadata": []
+                "metadata": [
+                    {
+                        "BONUS": {
+                            "VALUE": 20
+                        }
+                    }
+                ]
             }
         },
         {
@@ -1061,19 +1173,44 @@
             },
             "B": {
                 "text": "Los órganos internos hierven y se consumen. El rival cae y fallece instantáneamente.",
-                "metadata": []
+                "metadata": [
+                    {
+                        "BONUS": {
+                            "VALUE": 10
+                        }
+                    }
+                ]
             },
             "C": {
                 "text": "El golpe alcanza la cabeza. Músculos y tendones se fusionan, y el cerebro se fríe. Muere en 3 asaltos.",
-                "metadata": []
+                "metadata": [
+                    {
+                        "BONUS": {
+                            "VALUE": 10,
+                            "ROUNDS": 3
+                        }
+                    }
+                ]
             },
             "D": {
                 "text": "El caos estalla alrededor del rival. Lo más cercano a él también sufre la mortífera descarga. Muere 2 asaltos después.",
-                "metadata": []
+                "metadata": [
+                    {
+                        "BONUS": {
+                            "VALUE": 15
+                        }
+                    }
+                ]
             },
             "E": {
                 "text": "La cabeza del adversario se carboniza por completo y lo que queda se lo lleva el viento. Todos sienten pavor ante ti.",
-                "metadata": []
+                "metadata": [
+                    {
+                        "BONUS": {
+                            "VALUE": 20
+                        }
+                    }
+                ]
             }
         }
     ]
